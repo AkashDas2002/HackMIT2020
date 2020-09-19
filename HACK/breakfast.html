@@ -18,67 +18,73 @@
 
   	<div class = "choices">
 		<h3>
-			Carbohydrates?
+			Carbohydrates
 		</h3>
 		<section id = "carbs">
 
-			<label>
-				<input type = "checkbox">
-				Pancakes
-			</label>
+			<form action="/action_page.php">
+				  <label for="pancakes">Pancakes:</label>
+				  <input type="number" id="pancakes" name="pancakes" min="0" value="0">
+			</form>
 
-			<label>
-				<input type = "checkbox">
-				Waffles
-			</label>
+			<form action="/action_page.php">
+				  <label for="waffles">Waffles:</label>
+				  <input type="number" id="waffles" name="waffles" min="0" value="0">
+			</form>
 
-			<label>
-				<input type = "checkbox">
-				Cereal
-			</label>
+			<form action="/action_page.php">
+				  <label for="cereal">Bowls of Cereal:</label>
+				  <input type="number" id="cereal" name="cereal" min="0" value="0">
+			</form>
 
-			<label>
-				<input type = "checkbox">
-				Bagel
-			</label>
+			<form action="/action_page.php">
+				  <label for="bagels">Bagels:</label>
+				  <input type="number" id="bagels" name="bagels" min="0" value="0">
+			</form>
 
-			<label>
-				<input type = "checkbox">
-				Toast
-			</label>
+			<form action="/action_page.php">
+				  <label for="toast">Slices of Toast:</label>
+				  <input type="number" id="toast" name="toast" min="0" value="0">
+			</form>
 
-			<label>
-				<input type = "checkbox">
-				Crossiant
-			</label>
+			<form action="/action_page.php">
+				  <label for="crossiant">Crossiant:</label>
+				  <input type="number" id="crossiant" name="crossiant" min="0" value="0">
+			</form>
+
+			<form action="/action_page.php">
+				  <label for="other_carb">Other (estimate the number of calories):</label>
+				  <input type="number" id="other_carb" name="other_carb" min="0" value="0">
+			</form>
 		</section>
 
 		<h3>
-			Protein?
+			Protein
 		</h3>
 		<section id = "protein">
 
-			<label>
-				<input type = "checkbox">
-				Eggs
-			</label>
+			<form action="/action_page.php">
+				  <label for="eggs">Eggs:</label>
+				  <input type="number" id="eggs" name="eggs" min="0" value="0">
+			</form>
 
-			<label>
-				<input type = "checkbox">
-				Bacon
-			</label>
+			<form action="/action_page.php">
+				  <label for="bacon">Bacon:</label>
+				  <input type="number" id="bacon" name="bacon" min="0" value="0">
+			</form>
+			
+			<form action="/action_page.php">
+				  <label for="sausage">Sausages:</label>
+				  <input type="number" id="sausage" name="sausage" min="0" value="0">
+			</form>
 
-			<label>
-				<input type = "checkbox">
-				Sausage
-			</label>
-
-			<label>
-				<input type = "checkbox">
-				Bacon
-			</label>
+			<form action="/action_page.php">
+				  <label for="other_pro">Other (estimate the number of calories):</label>
+				  <input type="number" id="other_pro" name="other_pro" min="0" value="0">
+			</form>
 
 		</section>
+
 
 	</div>
 
@@ -86,9 +92,43 @@
       <button type="button" onclick="calories();">Submit</button>
   	</form>
 
+  	<section id = "calories">
+  		Hi
+  	</div>
+
 
 	<script type="text/javascript">
 		function calories() {
+			var pancake_cal = 86;
+			var waffle_cal = 218;
+			var cereal_cal = 130;
+			var bagels_cal = 245;
+			var toast_cal = 87;
+			var crossiant_cal = 297;
+			var other_carb = parseInt(document.getElementById("other_carb").value);
+
+			var num_pancakes = parseFloat(document.getElementById("pancakes").value);
+			var num_waffles = parseFloat(document.getElementById("waffles").value);
+			var num_cereal = parseFloat(document.getElementById("cereal").value);
+			var num_bagels = parseFloat(document.getElementById("waffles").value);
+			var num_toast = parseFloat(document.getElementById("toast").value);
+			var num_crossiant = parseFloat(document.getElementById("crossiant").value);
+
+			var carb_cal = Math.round(pancake_cal*num_pancakes + waffle_cal*num_waffles + cereal_cal*num_cereal + toast_cal*num_toast + crossiant_cal*num_crossiant + other_carb);
+
+			var egg_cal = 78;
+			var bacon_cal = 44;
+			var sausage_cal = 70;
+			var other_pro = parseInt(document.getElementById("waffles").value);
+
+
+			var num_eggs = parseInt(document.getElementById("eggs").value);
+			var num_bacon = parseInt(document.getElementById("bacon").value);
+			var num_sausages = parseInt(document.getElementById("sausage").value);
+
+			var pro_cal = Math.round(egg_cal*num_eggs + bacon_cal*num_bacon + sausage_cal*num_sausages + other_pro)
+
+			document.getElementById("calories").innerHTML = carb_cal + pro_cal;
 		    
       }
     </script>

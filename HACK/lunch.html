@@ -6,90 +6,88 @@
 
 <body>
 	<a href="food.html">Food</a>
-	<a href="lunch.html">Lunch</a>
+	<a href="breakfast.html">Breakfast</a>
   	<a href="dinner.html">Dinner</a>
   	<a href="snacks.html">Snacks</a>
   	<a href="drinks.html">Drinks</a>
   	<a href="restaurants.html">Restaurants</a>
 
-		<h1>
-			Lunch!
-		</h1>
+	<h1>
+		Lunch!
+	</h1>
 
-  	<div class = "choices">
-		<h3>
-			Carbohydrates?
-		</h3>
-		<section id = "carbs">
+  	<form id="form" onsubmit="return false;">
 
-			<label>
-				<input type = "checkbox">
-				Pancakes
-			</label>
+  		<label for="salad">Salad: </label>
+        <select name="salad" id="salad">
+          <option value=0>None</option>
+          <option value=470>Caesar Salad</option>
+          <option value=250>Caprese Salad</option>
+        </select>
 
-			<label>
-				<input type = "checkbox">
-				Waffles
-			</label>
+        <br>
 
-			<label>
-				<input type = "checkbox">
-				Cereal
-			</label>
+        <label for="sandwich">Sandwich: </label>
+        <select name="sanwich" id="sandwich">
+          <option value=0>None</option>
+          <option value=250>Ham Sandwich</option>
+          <option value=352>Ham and Cheese Sandwich</option>
+          <option value=285>Turkey Sandwich</option>
+          <option value=400>Roast Beef Sandwich</option>
+          <option value=287>Tuna Fish Sandwich</option>
+          <option value=500>Chicken Salad Sandwich</option>
+          <option value=669>Grilled Cheese Sandwich</option>
+          <option value=350>Peanut Butter and Jelly Sandwich</option>
+        </select>
 
-			<label>
-				<input type = "checkbox">
-				Bagel
-			</label>
+        <br>
 
-			<label>
-				<input type = "checkbox">
-				Toast
-			</label>
+        <label for="burger">Burger: </label>
+        <select name="burger" id="burger">
+          <option value=0>None</option>
+          <option value=225>Beef Burger</option>
+          <option value=303>Beef Cheese Burger</option>
+          <option value=193>Turkey Burger</option>
+        </select>
 
-			<label>
-				<input type = "checkbox">
-				Crossiant
-			</label>
-		</section>
+        <br>
 
-		<h3>
-			Protein?
-		</h3>
-		<section id = "protein">
+        <label for="soup">Soup: </label>
+        <select name="soup" id="soup">
+          <option value=0>None</option>
+          <option value=160>Chicken Noodle Soup</option>
+          <option value=180>Split Pea Soup</option>
+          <option value=170>Tomato Soup</option>
+          <option value=450>Clam Chowder</option>
+          <option value=240>Minestrone Soup</option>
+          <option value=310>French Onion Soup</option>
+        </select>
 
-			<label>
-				<input type = "checkbox">
-				Eggs
-			</label>
-
-			<label>
-				<input type = "checkbox">
-				Bacon
-			</label>
-
-			<label>
-				<input type = "checkbox">
-				Sausage
-			</label>
-
-			<label>
-				<input type = "checkbox">
-				Bacon
-			</label>
-
-		</section>
-
-	</div>
+      </form>
 
 	<form id = "form" action = "/button-type">
       <button type="button" onclick="calories();">Submit</button>
   	</form>
 
+  	<section id = "calories">
+  		Hi
+  	</div>
 
 	<script type="text/javascript">
 		function calories() {
+			var salad_x = document.getElementById("salad").selectedIndex;
+      		var salad_cal = parseInt(document.getElementsByTagName("option")[salad_x].value);
 
+			var sand_x = document.getElementById("sandwich").selectedIndex;
+      		var sand_cal = parseInt(document.getElementsByTagName("option")[sand_x].value);
+
+      		var burger_x = document.getElementById("burger").selectedIndex;
+      		var burger_cal = parseInt(document.getElementsByTagName("option")[burger_x].value);
+			
+			var soup_x = document.getElementById("soup").selectedIndex;
+      		var soup_cal = parseInt(document.getElementsByTagName("option")[soup_x].value);
+
+      		document.getElementById("calories").innerHTML = salad_cal + sand_cal + burger_cal + soup_cal;
       }
     </script>
 
