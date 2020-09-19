@@ -81,8 +81,14 @@
       </h2>
       <div id = "Total Calories">
       </div>
+
+      <h2 id = "Consumed Calories Clicker" onclick="print_consumed();"> Total Calories Consumed
+      </h2>
+      <div id = "Consumed Calories">
+      </div>
       <h2 id = "Reset" onclick="reset();"> Start New Day
       </h2>
+
     </div>
 
   </div>
@@ -94,6 +100,12 @@
       localStorage["biking_cal"] = 0
       localStorage["walking_cal"] = 0
       localStorage["other_cal"] = 0
+      localStorage["breakfast_cal"] = 0;
+      localStorage["lunch_cal"] = 0;
+      localStorage["dinner_cal"] = 0;
+      localStorage["dd_cal"] = 0;
+      localStorage["snacks_cal"] = 0;
+      localStorage["restaurant_cal"] = 0;
     }
 
     function print() {
@@ -103,6 +115,16 @@
       var walking_cal = parseFloat(localStorage["walking_cal"]);
       var other_cal = parseFloat(localStorage["other_cal"]);
       document.getElementById("Total Calories").innerHTML = running_cal + swimming_cal + biking_cal + other_cal + walking_cal;
+    }
+
+    function print_consumed() {
+      var breakfast_cal = parseFloat(localStorage["breakfast_cal"]);
+      var lunch_cal = parseFloat(localStorage["lunch_cal"]);
+      var dinner_cal = parseFloat(localStorage["dinner_cal"]);
+      var dd_cal = parseFloat(localStorage["dd_cal"]);
+      var snacks_cal = parseFloat(localStorage["snacks_cal"]);
+      var restaurant_cal = parseFloat(localStorage["restaurant_cal"])
+      document.getElementById("Consumed Calories").innerHTML = breakfast_cal + lunch_cal + dinner_cal + dd_cal + snacks_cal + restaurant_cal;
     }
 
     function weight() {

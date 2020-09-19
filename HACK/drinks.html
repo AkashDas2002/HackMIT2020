@@ -21,12 +21,12 @@
 			Drinks!
 		</h3>
 
-		<p>
-			How many cups?
-		</p>
+
 
 		<section id = "carbs">
-
+      <span>
+        How many cups?
+      </span>
 			<form action="/action_page.php">
 				  <label for="coke">Coke:</label>
 				  <input type="number" id="coke" name="coke" min="0" value="0">
@@ -53,15 +53,18 @@
 		</h3>
 		<section id = "dessert">
 
-			<label for="cake">Slice of Cake:</label>
+			<label for="cake">Type of Cake:</label>
 	        <select name="cake" id="cake">
 	          <option value=0>None</option>
 	          <option value=506>Chocolate Cake</option>
 	          <option value=370>Red Velvet Cake</option>
 	          <option value=401>Cheesecake</option>
 	        </select>
-
 	        <br>
+          <form action="/action_page.php">
+				  <label for="cakeSlices">Number of Slices of Cake:</label>
+				  <input type="number" id="num_cakes" name="num_cakes" min="0" value="0">
+			    </form>
 
 	        <label for="cookies">Cookies:</label>
 	        <select name="cookies" id="cookies">
@@ -72,7 +75,7 @@
 	        </select>
 	        <br>
 	        <form action="/action_page.php">
-				  <label for="lemonade">Number of Cookies:</label>
+				  <label for="num_cookies">Number of Cookies:</label>
 				  <input type="number" id="num_cookies" name="num_cookies" min="0" value="0">
 			</form>
 
@@ -104,6 +107,9 @@
       <button type="button" onclick="calories();">Submit</button>
   	</form>
 
+    <section id = "calories">
+  	</section>
+
 
 	<script type="text/javascript">
 		function calories() {
@@ -119,9 +125,12 @@
 
 			var drinks_cal = Math.round(coke_cal_cup*coke_cups + sprite_cal_cup*sprite_cups + lemonade_cal_cup*lemonade_cups + other_drink_cal);
 
-			var cake_cal = 
+      var cake = document.getElementById("cake");
+			var per_cake = parseInt(cake.options[cake.selectedIndex].value);
+			var num_cakes = parseInt(document.getElementById("num_cakes").value);
+			var cake_cal = per_cake*num_cakes;
 
-			var cookie = document.getElementById("cookie");
+			var cookie = document.getElementById("cookies");
 			var per_cookie = parseInt(cookie.options[cookie.selectedIndex].value);
 			var num_cookies = parseInt(document.getElementById("num_cookies").value);
 			var cookie_cal = per_cookie*num_cookies;
@@ -133,7 +142,9 @@
 
 			var other = parseFloat(document.getElementById("other_dess").value);
 
-			var dessert_cal = Math.round(cookie_cal + ice_cream_cal + cake_cal + other);
+			var total_cal = Math.round(cake_cal + cookie_cal + ice_cream_cal + other + drinks_cal);
+      document.getElementById("calories").innerHTML = "You ate " + total_cal;
+      localStorage['dd_cal'] = parseInt(localStorage['dd_cal']) + total_cal;
 
       }
     </script>
