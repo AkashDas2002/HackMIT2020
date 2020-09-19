@@ -52,6 +52,24 @@
 
         <br>
 
+        <label for="pizza">Pizza: </label>
+        <select name="pizza" id="pizza">
+          <option value=0>None</option>
+          <option value=285>Plain</option>
+          <option value=300>Pepperoni</option>
+          <option value=300>Hawaiin</option>
+          <option value=300>Sausage</option>
+        </select>
+
+    </form>
+
+    <form action="/action_page.php" id="form">
+		  <label for="slices">Number of Slices of Pizza:</label>
+		  <input type="number" id="slices" name="slices" min="0" value="0">
+	</form>
+
+	<form id="form" onsubmit="return false;">
+
         <label for="soup">Soup: </label>
         <select name="soup" id="soup">
           <option value=0>None</option>
@@ -71,23 +89,32 @@
 
   	<section id = "calories">
   		Hi
-  	</div>
+  	</section>
 
 	<script type="text/javascript">
 		function calories() {
-			var salad_x = document.getElementById("salad").selectedIndex;
-      		var salad_cal = parseInt(document.getElementsByTagName("option")[salad_x].value);
 
-			var sand_x = document.getElementById("sandwich").selectedIndex;
-      		var sand_cal = parseInt(document.getElementsByTagName("option")[sand_x].value);
+			var salad = document.getElementById("salad");
+			var salad_cal = parseInt(salad.options[salad.selectedIndex].value);
 
-      		var burger_x = document.getElementById("burger").selectedIndex;
-      		var burger_cal = parseInt(document.getElementsByTagName("option")[burger_x].value);
-			
-			var soup_x = document.getElementById("soup").selectedIndex;
-      		var soup_cal = parseInt(document.getElementsByTagName("option")[soup_x].value);
+			var sand = document.getElementById("sandwich");
+			var sand_cal = parseInt(sand.options[sand.selectedIndex].value);
 
-      		document.getElementById("calories").innerHTML = salad_cal + sand_cal + burger_cal + soup_cal;
+			var burger = document.getElementById("burger");
+			var burger_cal = parseInt(burger.options[burger.selectedIndex].value);
+
+			var pizza = document.getElementById("pizza");
+			var pizza_cal_slice = parseInt(pizza.options[pizza.selectedIndex].value);
+			var pizza_slices = parseInt(document.getElementById("slices").value);
+			var pizza_cal = pizza_cal_slice*pizza_slices;
+
+			var soup = document.getElementById("soup");
+			var soup_cal = parseInt(soup.options[soup.selectedIndex].value);
+
+
+      		var lunch_cal = Math.round(salad_cal + sand_cal + burger_cal + soup_cal + pizza_cal)
+      		document.getElementById("calories").innerHTML = lunch_cal;
+      		localStorage["lunch_cal"] = lunch_cal;
       }
     </script>
 

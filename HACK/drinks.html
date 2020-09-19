@@ -13,75 +13,88 @@
   	<a href="restaurants.html">Restaurants</a>
 
 		<h1>
-			Drinks!
+			Drinks & Desserts!
 		</h1>
 
   	<div class = "choices">
 		<h3>
-			Carbohydrates?
+			Drinks!
 		</h3>
+
+		<p>
+			How many cups?
+		</p>
+
 		<section id = "carbs">
 
 			<form action="/action_page.php">
-				  <label for="quantity">Pancakes:</label>
-				  <input type="number" id="pancakes" name="pancakes" min="0">
+				  <label for="coke">Coke:</label>
+				  <input type="number" id="coke" name="coke" min="0" value="0">
 			</form>
 
-			<label>
-				<input type = "checkbox">
-				Pancakes
-			</label>
+			<form action="/action_page.php">
+				  <label for="sprite">Sprite:</label>
+				  <input type="number" id="sprite" name="sprite" min="0" value="0">
+			</form>
 
-			<label>
-				<input type = "checkbox">
-				Waffles
-			</label>
+			<form action="/action_page.php">
+				  <label for="lemonade">Lemonade:</label>
+				  <input type="number" id="lemonade" name="lemonade" min="0" value="0">
+			</form>
 
-			<label>
-				<input type = "checkbox">
-				Cereal
-			</label>
-
-			<label>
-				<input type = "checkbox">
-				Bagel
-			</label>
-
-			<label>
-				<input type = "checkbox">
-				Toast
-			</label>
-
-			<label>
-				<input type = "checkbox">
-				Crossiant
-			</label>
+			<form action="/action_page.php">
+				  <label for="other_drink">Other (estimate the number of calories):</label>
+				  <input type="number" id="other_drink" name="other_drink" min="0" value="0">
+			</form>
 		</section>
 
 		<h3>
-			Protein?
+			Desserts!
 		</h3>
-		<section id = "protein">
+		<section id = "dessert">
 
-			<label>
-				<input type = "checkbox">
-				Eggs
-			</label>
+			<label for="cake">Slice of Cake:</label>
+	        <select name="burger" id="burger">
+	          <option value=0>None</option>
+	          <option value=225>Chocolate Cake</option>
+	          <option value=303>Red Velvet Cake</option>
+	          <option value=193>Cheesecake</option>
+	        </select>
 
-			<label>
-				<input type = "checkbox">
-				Bacon
-			</label>
+	        <br>
 
-			<label>
-				<input type = "checkbox">
-				Sausage
-			</label>
+	        <label for="cake">Cookies:</label>
+	        <select name="burger" id="burger">
+	          <option value=0>None</option>
+	          <option value=225>Chocolate Chip Cookie</option>
+	          <option value=303>Oatmeal Raisin Cookie</option>
+	          <option value=193>Sugar Cookie</option>
+	        </select>
+	        <br>
+	        <form action="/action_page.php">
+				  <label for="lemonade">Number of Cookies:</label>
+				  <input type="number" id="num_cookies" name="num_cookies" min="0" value="0">
+			</form>
 
-			<label>
-				<input type = "checkbox">
-				Bacon
-			</label>
+	        <label for="ice cream">Ice Cream:</label>
+	        <select name="burger" id="burger">
+	          <option value=0>None</option>
+	          <option value=225>Vanilla</option>
+	          <option value=303>Chocolate</option>
+	          <option value=193>Strawberry</option>
+	          <option value=193>Mint Chocolate Chip</option>
+	          <option value=193>Caramel</option>
+	        </select>
+	        <br>
+	        <form action="/action_page.php">
+				  <label for="num_scoops">Number of Scoops:</label>
+				  <input type="number" id="num_scoops" name="num_scoops" min="0" value="0">
+			</form>
+
+			<form action="/action_page.php">
+				  <label for="other_dess">Other (estimate the number of calories):</label>
+				  <input type="number" id="other_dess" name="other_dess" min="0" value="0">
+			</form>
 
 		</section>
 
@@ -94,6 +107,21 @@
 
 	<script type="text/javascript">
 		function calories() {
+			var coke_cal_cup = 140;
+			var sprite_cal_cup = 96;
+			var lemonade_cal_cup = 96;
+
+			var coke_cups = parseFloat(document.getElementById("coke").value);
+			var sprite_cups = parseFloat(document.getElementById("sprite").value);
+			var lemonade_cups = parseFloat(document.getElementById("lemonade").value);
+
+			var other_drink_cal = parseFloat(document.getElementById("other_drink").value);
+
+			var drinks_cal = Math.round(coke_cal_cup*coke_cups + sprite_cal_cup*sprite_cups + lemonade_cal_cup*lemonade_cups + other_drink_cal);
+
+
+
+
 
       }
     </script>

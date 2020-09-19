@@ -157,3 +157,11 @@ a:active {
   color: #569A75;
   text-decoration: none;
 }
+
+#nav a:link{
+  text-decoration: underline;
+}
+
+#nav a:hover{
+  text-decoration: none;
+}

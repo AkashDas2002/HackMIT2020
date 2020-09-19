@@ -12,83 +12,99 @@
   	<a href="drinks.html">Drinks</a>
   	<a href="restaurants.html">Restaurants</a>
 
-		<h1>
-			Dinner!
-		</h1>
+	<h1>
+		Dinner!
+	</h1>
 
-  	<div class = "choices">
-		<h3>
-			Carbohydrates?
-		</h3>
-		<section id = "carbs">
+  	<form id="form" onsubmit="return false;">
 
-			<label>
-				<input type = "checkbox">
-				Pancakes
-			</label>
+  		<label for="salad">Salad: </label>
+        <select name="salad" id="salad">
+          <option value=0>None</option>
+          <option value=470>Caesar Salad</option>
+          <option value=250>Caprese Salad</option>
+        </select>
 
-			<label>
-				<input type = "checkbox">
-				Waffles
-			</label>
+        <br>
 
-			<label>
-				<input type = "checkbox">
-				Cereal
-			</label>
+        <label for="soup">Soup: </label>
+        <select name="soup" id="soup">
+          <option value=0>None</option>
+          <option value=160>Chicken Noodle Soup</option>
+          <option value=180>Split Pea Soup</option>
+          <option value=170>Tomato Soup</option>
+          <option value=450>Clam Chowder</option>
+          <option value=240>Minestrone Soup</option>
+          <option value=310>French Onion Soup</option>
+        </select>
 
-			<label>
-				<input type = "checkbox">
-				Bagel
-			</label>
+        <br>
 
-			<label>
-				<input type = "checkbox">
-				Toast
-			</label>
+        <label for="burger">Burger: </label>
+        <select name="burger" id="burger">
+          <option value=0>None</option>
+          <option value=225>Beef Burger</option>
+          <option value=303>Beef Cheese Burger</option>
+          <option value=193>Turkey Burger</option>
+        </select>
 
-			<label>
-				<input type = "checkbox">
-				Crossiant
-			</label>
-		</section>
+        <br>
 
-		<h3>
-			Protein?
-		</h3>
-		<section id = "protein">
+        <label for="pasta">Pasta: </label>
+        <select name="pasta" id="pasta">
+          <option value=0>None</option>
+          <option value=351>Spaghetti Bolognese</option>
+          <option value=602>Lasagna</option>
+          <option value=376>Macaroni and Cheese</option>
+          <option value=520>Fettuccine Alfredo</option>
+          <option value=440>Spaghetti alla Vongole</option>
+        </select>
 
-			<label>
-				<input type = "checkbox">
-				Eggs
-			</label>
+        </form>
 
-			<label>
-				<input type = "checkbox">
-				Bacon
-			</label>
+        <form action="/action_page.php" id = "form">
+			  <label for="steak">Steak (number of ounces):</label>
+			  <input type="number" id="steak" name="steak" min="0" value="0">
+		</form>
 
-			<label>
-				<input type = "checkbox">
-				Sausage
-			</label>
-
-			<label>
-				<input type = "checkbox">
-				Bacon
-			</label>
-
-		</section>
-
-	</div>
+		<form action="/action_page.php" id = "form">
+			  <label for="other">Other (estimate the number of calories):</label>
+			  <input type="number" id="other" name="other" min="0" value="0">
+		</form>
 
 	<form id = "form" action = "/button-type">
       <button type="button" onclick="calories();">Submit</button>
   	</form>
 
+  	<section id = "calories">
+  		Hi
+  	</section>
+
 
 	<script type="text/javascript">
 		function calories() {
+
+			var salad_x = document.getElementById("salad").selectedIndex;
+      		var salad_cal = parseInt(document.getElementsByTagName("option")[salad_x].value);
+
+      		var burger_x = document.getElementById("burger").selectedIndex;
+      		var burger_cal = parseInt(document.getElementsByTagName("option")[burger_x].value);
+			
+			var soup_x = document.getElementById("soup").selectedIndex;
+      		var soup_cal = parseInt(document.getElementsByTagName("option")[soup_x].value);
+
+      		var pasta_x = document.getElementById("pasta").selectedIndex;
+      		var pasta_cal = parseInt(document.getElementsByTagName("option")[pasta_x].value);
+
+			var steak_cal_ounce = 77;
+			var steak_ounces = parseInt(document.getElementById("steak").value);
+			var steak_cal = steak_cal_ounce*steak_ounces;
+
+			var other_cal = parseInt(document.getElementById("other").value);
+
+			var dinner_cal = salad_cal + burger_cal + soup_cal + pasta_cal + steak_cal + other_cal;
+			document.getElementById("calories").innerHTML = dinner_cal;
+			localStorage["dinner_cal"] = dinner_cal;
 
       }
     </script>

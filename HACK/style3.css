@@ -16,3 +16,22 @@ h1 {
 	height: 80%;
 	background-color: #3DD081;
 }
+
+a:link {
+  color: #569A75;
+}
+
+a:visited {
+  color: #569A75;
+  text-decoration: none;
+}
+
+a:hover {
+  color: #3B7255;
+  text-decoration: none;
+}
+
+a:active {
+  color: #569A75;
+  text-decoration: none;
+}

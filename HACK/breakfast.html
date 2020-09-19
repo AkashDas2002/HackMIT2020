@@ -128,7 +128,10 @@
 
 			var pro_cal = Math.round(egg_cal*num_eggs + bacon_cal*num_bacon + sausage_cal*num_sausages + other_pro)
 
-			document.getElementById("calories").innerHTML = carb_cal + pro_cal;
+
+			var breakfast_cal = carb_cal + pro_cal;
+			document.getElementById("calories").innerHTML = breakfast_cal;
+			localStorage["breakfast_cal"] = breakfast_cal;
 		    
       }
     </script>
