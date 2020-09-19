@@ -89,7 +89,7 @@
 
       		var burger_x = document.getElementById("burger").selectedIndex;
       		var burger_cal = parseInt(document.getElementsByTagName("option")[burger_x].value);
-			
+
 			var soup_x = document.getElementById("soup").selectedIndex;
       		var soup_cal = parseInt(document.getElementsByTagName("option")[soup_x].value);
 
@@ -104,7 +104,7 @@
 
 			var dinner_cal = salad_cal + burger_cal + soup_cal + pasta_cal + steak_cal + other_cal;
 			document.getElementById("calories").innerHTML = dinner_cal;
-			localStorage["dinner_cal"] = dinner_cal;
+			localStorage["dinner_cal"] = parseInt(localStorage["dinner_cal"]) + dinner_cal;
 
       }
     </script>

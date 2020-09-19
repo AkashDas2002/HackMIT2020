@@ -119,9 +119,9 @@
 			var other_cal = parseInt(document.getElementById("other").value);
 
 
-      		var lunch_cal = Math.round(salad_cal + sand_cal + burger_cal + soup_cal + pizza_cal + other_cal)
-      		document.getElementById("calories").innerHTML = lunch_cal;
-      		localStorage["lunch_cal"] = lunch_cal;
+      var lunch_cal = Math.round(salad_cal + sand_cal + burger_cal + soup_cal + pizza_cal + other_cal)
+      document.getElementById("calories").innerHTML = lunch_cal;
+      localStorage["lunch_cal"] = parseInt(localStorage["lunch_cal"]) + lunch_cal;
       }
     </script>
 
