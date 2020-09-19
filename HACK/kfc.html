@@ -16,25 +16,47 @@
 
   	<div class = "choices">
 
-		<section id = "mcDonalds_burgers">
+		<section id = "KFC_Chicken">
 
       <h3>
-  			Burgers
+  			Chicken
   		</h3>
           <div>
-            <input class = "burgers" type="checkbox" id="big_mac" value="550">
-            <label for="big_mac">Big Mac</label>
-            <input class = "burgers" type="checkbox" id="qpounder_cheese" value="510">
-            <label for="tomato">Quarter Pounder With Cheese Deluxe</label>
-            <input class = "burgers" type="checkbox" id="mcdouble" value="390">
-            <label for="mcdouble">McDouble</label>
+            <span>Extra Crispy</span>
             <br>
-            <input class = "burgers" type="checkbox" id="qpounder_cheese_bacon" value="620">
-            <label for="qpounder_cheese_bacon">Quarter Pounder with Cheese Bacon</label>
-            <input class = "burgers" type="checkbox" id="cheeseBurger" value="300">
-            <label for="cheeseBurger">Cheeseburger</label>
-            <input class = "burgers" type="checkbox" id="doublecheeseBurger" value="440">
-            <label for="doublecheeseBurger">Double Cheeseburger</label>
+            <input class = "chickens" type="checkbox" id="breast" value="510">
+            <label for="breast">Breast</label>
+            <input class = "chickens" type="checkbox" id="drumstick" value="150">
+            <label for="drumstick">Drumstick</label>
+            <input class = "chickens" type="checkbox" id="thigh" value="340">
+            <label for="thigh">Thigh</label>
+            <input class = "chickens" type="checkbox" id="whole_wing" value="190">
+            <label for="whole_wing">Whole Wing</label>
+            <br>
+
+            <span>Grilled</span>
+            <br>
+            <input class = "chickens" type="checkbox" id="breast" value="220">
+            <label for="breast">Breast</label>
+            <input class = "chickens" type="checkbox" id="drumstick" value="90">
+            <label for="drumstick">Drumstick</label>
+            <input class = "chickens" type="checkbox" id="thigh" value="170">
+            <label for="thigh">Thigh</label>
+            <input class = "chickens" type="checkbox" id="whole_wing" value="80">
+            <label for="whole_wing">Whole Wing</label>
+            <br>
+
+            <span>Original Recipe</span>
+            <br>
+            <input class = "chickens" type="checkbox" id="breast" value="360">
+            <label for="breast">Breast</label>
+            <input class = "chickens" type="checkbox" id="drumstick" value="120">
+            <label for="drumstick">Drumstick</label>
+            <input class = "chickens" type="checkbox" id="thigh" value="250s">
+            <label for="thigh">Thigh</label>
+            <input class = "chickens" type="checkbox" id="whole_wing" value="120">
+            <label for="whole_wing">Whole Wing</label>
+            <br>
           </div>
 
       <h3>
@@ -79,7 +101,7 @@
 	<script type="text/javascript">
 		function calories() {
       var totalCalories = 0;
-      var inputElements = document.getElementsByClassName('burgers');
+      var inputElements = document.getElementsByClassName('chickens');
       for(var i=0; inputElements[i]; ++i){
         if(inputElements[i].checked){
            totalCalories = totalCalories + parseInt(inputElements[i].value);
