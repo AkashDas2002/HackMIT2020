@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <link rel='stylesheet' type='text/css' href='style3.css'>
+</head>
+
+<body>
+    <a href="mcdonalds.html">McDonald's</a>
+    <a href="wendys.html">Wendy's</a>
+    <a href="kfc.html">KFC</a>
+    <a href="restaurants.html">Restaurants</a>
+
+		<h1>
+			Shake Shack
+		</h1>
+
+  	<div class = "choices">
+
+		<section id = "mcDonalds_burgers">
+
+      <h3>
+  			Burgers
+  		</h3>
+          <div>
+            <input class = "burgers" type="checkbox" id="singleShack" value="530">
+            <label for="singleShack">Single ShackBurger</label>
+            <input class = "burgers" type="checkbox" id="doubleShack" value="790">
+            <label for="doubleShack">Double ShackBurger</label>
+            <input class = "burgers" type="checkbox" id="hamburger" value="400">
+            <label for="hamburger">Hamburger</label>
+            <br>
+            <input class = "burgers" type="checkbox" id="doubleHamburger" value="590">
+            <label for="doubleHamburger">Double Hamburger</label>
+            <input class = "burgers" type="checkbox" id="shroomBurger" value="550">
+            <label for="cheeseBurger">'Shroom Burger'</label>
+            <input class = "burgers" type="checkbox" id="shackstack" value="800">
+            <label for="shackstack">Shack Stack</label>
+          </div>
+
+      <h3>
+        Sides
+      </h3>
+          <div>
+            <label for="Fries">Fries:</label>
+      	      <select name="fries" id="fries">
+      	        <option value=0>None</option>
+      	        <option value=470>Regular</option>
+      	        <option value=710>Cheese</option>
+      	        <option value=890>Bacon Cheese</option>
+      	      </select>
+          </div>
+
+          <h3>
+            Other
+          </h3>
+          <form action="/action_page.php">
+      			  <label for="other_ss">Other (estimate the number of calories):</label>
+      			  <input type="number" id="other_ss" name="other_ss" min="0" value="0">
+    			</form>
+
+
+	</div>
+
+	<form id = "form" action = "/button-type">
+      <button type="button" onclick="calories();">Submit</button>
+  	</form>
+
+  	<section id = "calories">
+  		Hi
+  	</section>
+
+
+	<script type="text/javascript">
+		function calories() {
+      var totalCalories = 0;
+      var inputElements = document.getElementsByClassName('burgers');
+      for(var i=0; inputElements[i]; ++i){
+        if(inputElements[i].checked){
+           totalCalories = totalCalories + parseInt(inputElements[i].value);
+         }
+       }
+      var fries = document.getElementById("fries");
+ 			totalCalories = totalCalories + parseInt(fries.options[fries.selectedIndex].value);
+      var other = parseInt(document.getElementById("other_ss").value)
+      totalCalories = totalCalories + other;
+			document.getElementById("calories").innerHTML = totalCalories;
+      localStorage["restaurant_cal"] = parseInt(localStorage["restaurant_cal"]) + totalCalories;
+      }
+  </script>
+
+</body>
+
+</html>
