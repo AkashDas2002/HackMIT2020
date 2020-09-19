@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <link rel='stylesheet' type='text/css' href='style3.css'>
+</head>
+
+<body>
+  	<a href="food.html">Food</a>
+	  <a href="lunch.html">Lunch</a>
+  	<a href="dinner.html">Dinner</a>
+  	<a href="snacks.html">Snacks</a>
+  	<a href="drinks.html">Drinks</a>
+  	<a href="restaurants.html">Restaurants</a>
+
+		<h1>
+			McDonalds
+		</h1>
+
+  	<div class = "choices">
+
+		<section id = "mcDonalds_burgers">
+
+      <h3>
+  			Burgers
+  		</h3>
+          <div>
+            <input class = "burgers" type="checkbox" id="big_mac" value="550">
+            <label for="big_mac">Big Mac</label>
+            <input class = "burgers" type="checkbox" id="qpounder_cheese" value="510">
+            <label for="tomato">Quarter Pounder With Cheese Deluxe</label>
+            <input class = "burgers" type="checkbox" id="mcdouble" value="390">
+            <label for="mcdouble">McDouble</label>
+            <br>
+            <input class = "burgers" type="checkbox" id="qpounder_cheese_bacon" value="620">
+            <label for="qpounder_cheese_bacon">Quarter Pounder with Cheese Bacon</label>
+            <input class = "burgers" type="checkbox" id="cheeseBurger" value="300">
+            <label for="cheeseBurger">Cheeseburger</label>
+            <input class = "burgers" type="checkbox" id="doublecheeseBurger" value="440">
+            <label for="doublecheeseBurger">Double Cheeseburger</label>
+          </div>
+
+      <h3>
+        Sides
+      </h3>
+          <div>
+            <label for="Fries">Fries:</label>
+      	      <select name="fries" id="fries">
+      	        <option value=0>None</option>
+      	        <option value=220>Small</option>
+      	        <option value=320>Medium</option>
+      	        <option value=490>Large</option>
+      	      </select>
+          </div>
+          <div>
+            <form action="/action_page.php">
+  				  <label for="nuggets">Chicken McNuggets:</label>
+  				  <input type="number" id="num_nuggets" name="num_nuggets" min="0" value="0">
+  			    </form>
+          </div>
+
+          <h3>
+            Other
+          </h3>
+          <form action="/action_page.php">
+      			  <label for="other_mcd">Other (estimate the number of calories):</label>
+      			  <input type="number" id="other_mcd" name="other_mcd" min="0" value="0">
+    			</form>
+
+
+	</div>
+
+	<form id = "form" action = "/button-type">
+      <button type="button" onclick="calories();">Submit</button>
+  	</form>
+
+  	<section id = "calories">
+  		Hi
+  	</section>
+
+
+	<script type="text/javascript">
+		function calories() {
+      var totalCalories = 0;
+      var inputElements = document.getElementsByClassName('burgers');
+      for(var i=0; inputElements[i]; ++i){
+        if(inputElements[i].checked){
+           totalCalories = totalCalories + parseInt(inputElements[i].value);
+         }
+       }
+      var fries = document.getElementById("fries");
+ 			totalCalories = totalCalories + parseInt(fries.options[fries.selectedIndex].value);
+      var num_nuggets = parseInt(document.getElementById("num_nuggets").value);
+      totalCalories = totalCalories + num_nuggets*42;
+      var other = parseInt(document.getElementById("other_mcd").value)
+      totalCalories = totalCalories + other;
+			document.getElementById("calories").innerHTML = totalCalories;
+      localStorage["restaurant_cal"] = parseInt(localStorage["restaurant_cal"]) + totalCalories;
+      }
+  </script>
+
+</body>
+
+</html>
