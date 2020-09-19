@@ -81,7 +81,12 @@
           <option value=310>French Onion Soup</option>
         </select>
 
-      </form>
+    </form>
+
+    <form action="/action_page.php" id= "form">
+		  <label for="other">Other (estimate the number of calories):</label>
+		  <input type="number" id="other" name="other" min="0" value="0">
+	</form>
 
 	<form id = "form" action = "/button-type">
       <button type="button" onclick="calories();">Submit</button>
@@ -111,8 +116,10 @@
 			var soup = document.getElementById("soup");
 			var soup_cal = parseInt(soup.options[soup.selectedIndex].value);
 
+			var other_cal = parseInt(document.getElementById("other").value);
 
-      		var lunch_cal = Math.round(salad_cal + sand_cal + burger_cal + soup_cal + pizza_cal)
+
+      		var lunch_cal = Math.round(salad_cal + sand_cal + burger_cal + soup_cal + pizza_cal + other_cal)
       		document.getElementById("calories").innerHTML = lunch_cal;
       		localStorage["lunch_cal"] = lunch_cal;
       }

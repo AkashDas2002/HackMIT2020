@@ -54,21 +54,21 @@
 		<section id = "dessert">
 
 			<label for="cake">Slice of Cake:</label>
-	        <select name="burger" id="burger">
+	        <select name="cake" id="cake">
 	          <option value=0>None</option>
-	          <option value=225>Chocolate Cake</option>
-	          <option value=303>Red Velvet Cake</option>
-	          <option value=193>Cheesecake</option>
+	          <option value=506>Chocolate Cake</option>
+	          <option value=370>Red Velvet Cake</option>
+	          <option value=401>Cheesecake</option>
 	        </select>
 
 	        <br>
 
-	        <label for="cake">Cookies:</label>
-	        <select name="burger" id="burger">
+	        <label for="cookies">Cookies:</label>
+	        <select name="cookies" id="cookies">
 	          <option value=0>None</option>
-	          <option value=225>Chocolate Chip Cookie</option>
-	          <option value=303>Oatmeal Raisin Cookie</option>
-	          <option value=193>Sugar Cookie</option>
+	          <option value=75>Chocolate Chip Cookie</option>
+	          <option value=55>Oatmeal Raisin Cookie</option>
+	          <option value=70>Sugar Cookie</option>
 	        </select>
 	        <br>
 	        <form action="/action_page.php">
@@ -77,18 +77,18 @@
 			</form>
 
 	        <label for="ice cream">Ice Cream:</label>
-	        <select name="burger" id="burger">
+	        <select name="ice cream" id="ice cream">
 	          <option value=0>None</option>
-	          <option value=225>Vanilla</option>
-	          <option value=303>Chocolate</option>
-	          <option value=193>Strawberry</option>
-	          <option value=193>Mint Chocolate Chip</option>
-	          <option value=193>Caramel</option>
+	          <option value=170>Vanilla</option>
+	          <option value=285>Chocolate</option>
+	          <option value=140>Strawberry</option>
+	          <option value=270>Mint Chocolate Chip</option>
+	          <option value=264>Caramel</option>
 	        </select>
 	        <br>
 	        <form action="/action_page.php">
-				  <label for="num_scoops">Number of Scoops:</label>
-				  <input type="number" id="num_scoops" name="num_scoops" min="0" value="0">
+				  <label for="scoops">Number of Scoops:</label>
+				  <input type="number" id="scoops" name="scoops" min="0" value="0">
 			</form>
 
 			<form action="/action_page.php">
@@ -119,9 +119,21 @@
 
 			var drinks_cal = Math.round(coke_cal_cup*coke_cups + sprite_cal_cup*sprite_cups + lemonade_cal_cup*lemonade_cups + other_drink_cal);
 
+			var cake_cal = 
 
+			var cookie = document.getElementById("cookie");
+			var per_cookie = parseInt(cookie.options[cookie.selectedIndex].value);
+			var num_cookies = parseInt(document.getElementById("num_cookies").value);
+			var cookie_cal = per_cookie*num_cookies;
 
+			var ice_cream = document.getElementById("ice cream");
+			var per_ice_cream = parseInt(ice_cream.options[ice_cream.selectedIndex].value);
+			var scoops = parseInt(document.getElementById("scoops").value);
+			var ice_cream_cal = per_ice_cream*scoops;
 
+			var other = parseFloat(document.getElementById("other_dess").value);
+
+			var dessert_cal = Math.round(cookie_cal + ice_cream_cal + cake_cal + other);
 
       }
     </script>
