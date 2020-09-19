@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <link rel='stylesheet' type='text/css' href='style2.css'>
+</head>
+
+<body>
+	<a href="home.html">Home</a>
+	<a href="running.html">Running</a>
+  	<a href="biking.html">Biking</a>
+  	<a href="walking.html">Walking</a>
+  	<a href="other.html">Other Exercises</a>
+  	<a href="food.html">Food</a>
+
+	<h1>
+		Other Exercises
+	</h1>
+
+	<form id="form" onsubmit="return false;">
+
+	 <label for="miles">How many calories would you estimate you burned?</label>
+	 <input type="text" id="cal" />
+
+	</form>
+
+	<form id = "form" action = "/button-type">
+      <button type="button" onclick="calories();">Calculate Calories</button>
+  	</form>
+
+  	<section id = "calories">
+	</section>
+
+	<section class = "fun">
+		<h2>
+			Fun Facts
+		</h2>
+	</section>
+
+	<script type="text/javascript">
+		function calories() {
+
+			  var newstuff = parseInt(document.getElementById("cal").value);
+		    localStorage["other_cal"] = parseInt(localStorage["other_cal"]) + newstuff;
+
+		    document.getElementById("calories").innerHTML = "Congratulations you have burned an additional " + newstuff + " calories!";
+		}
+
+	</script>
+</body>
+
+</html>

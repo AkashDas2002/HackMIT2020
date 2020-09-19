@@ -1,0 +1,16 @@
+#form {
+	text-align: center;
+	line-height: 30px;
+	height: 80%;
+	overflow: auto;
+	background-color:powderblue;
+}
+
+h1 {
+	color: #1A79CC;
+	text-align: center;
+}
+
+.fun {
+	text-align: center;
+}

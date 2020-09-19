@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <link rel='stylesheet' type='text/css' href='style2.css'>
+</head>
+
+<body>
+	<a href="home.html">Home</a>
+  <a href="biking.html">Biking</a>
+  <a href="swimming.html">Swimming</a>
+  <a href="walking.html">Walking</a>
+  <a href="other.html">Other Exercises</a>
+  <a href="food.html">Food</a>
+
+	<h1>
+		Running
+	</h1>
+
+	<form id="form" onsubmit="return false;">
+
+	 <label for="miles">How many miles did you run?</label>
+	 <input type="text" id="miles" />
+
+    <br>
+
+    <label for="time">For how much time did you run?</label>
+      <input type="number" id="hours" min="0" max="23" placeholder="1"/> <span>:</span>
+      <input type="number" id="minutes" min="0" max="59" placeholder="0"/><span>:</span>
+      <input type="number" id="seconds" min="0" max="59" placeholder="0"/>
+
+    <br>
+	</form>
+
+  <form id = "form" action = "/button-type">
+      <button type="button" onclick="running_calories();">Calculate Calories</button>
+  </form>
+
+  <section class = "fun">
+    <h2>
+      Fun Facts
+    </h2>
+  </section>
+
+	<section id = "calories">
+	</section>
+
+	<script type="text/javascript">
+		function running_calories() {
+		    var miles = parseFloat(document.getElementById("miles").value);
+          	var hours = parseFloat(document.getElementById("hours").value);
+          	var minutes = parseFloat(document.getElementById("minutes").value);
+          	var seconds = parseFloat(document.getElementById("seconds").value);
+            if (isNaN(miles)) {
+                miles = 0;
+            }
+            if (isNaN(hours)) {
+                hours = 0;
+            }
+            if (isNaN(minutes)) {
+                minutes = 0;
+            }
+            if (isNaN(seconds)) {
+                seconds = 0;
+            }
+
+            var total_minutes = hours*60 + minutes + seconds / 60;
+            var pace = total_minutes / miles ;
+            var weight = localStorage["weight_in_kg"]
+
+        var MET = 0;
+        if (pace >= 12) {
+          MET = 8;
+        }
+        else if (pace >= 11.5) {
+          MET = 9;
+        }
+        else if (pace >= 10) {
+          MET = 10;
+        }
+        else if (pace >= 9) {
+          MET = 11;
+        }
+        else if (pace >= 8.5) {
+          MET = 11.5;
+        }
+        else if (pace >= 8) {
+          MET = 12.5;
+        }
+        else if (pace >= 7.5) {
+          MET = 13.5;
+        }
+        else if (pace >= 7) {
+          MET = 14;
+        }
+        else if (pace >= 6.5) {
+          MET = 15;
+        }
+        else if (pace >= 6) {
+          MET = 16;
+        }
+        else {
+          MET = 18;
+        }
+
+        calories = Math.round(MET*weight*3.5/200 *total_minutes);
+
+
+        localStorage["running_cal"] = parseInt(localStorage["running_cal"]) + calories;
+
+        document.getElementById("calories").innerHTML = "Congratulations you have burned " + calories + " calories running!";
+      }
+    </script>
+
+</body>
+
+</html>

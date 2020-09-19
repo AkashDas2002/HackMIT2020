@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <link rel='stylesheet' type='text/css' href='style.css'>
+</head>
+
+<body>
+  <div class="grid">
+
+    <div class = "box top" id = "box top">
+      <h1>
+        Calorie Counter
+      </h1>
+    </div>
+
+    <div class="box a">
+    	<a href="running.html"><img src="running.jpg"></a>
+      <h1 id="label">
+        <a href="running.html">Running</a>
+      </h1>
+    </div>
+
+    <div class="box b">
+    	<a href="swimming.html"><img src="swimming.jpg"></a>
+      <h1 id="label">
+        <a href="swimming.html">Swimming</a>
+      </h1>
+    </div>
+
+    <div class="box c">
+    	<a href="biking.html"><img src="biking.jpg"></a>
+      <h1 id="label">
+        <a href="biking.html">Biking</a>
+      </h1>
+    </div>
+
+    <div class="box d">
+      <a href="walking.html"><img src="walking.jpg"></a>
+      <h1 id="label">
+        <a href="walking.html">Walking</a>
+      </h1>
+    </div>
+
+    <div class="box e">
+      <a href="other.html"><img src="other.jpg"></a>
+      <h1 id="label">
+        <a href="other.html">Other Exercises</a>
+      </h1>
+    </div>
+
+    <div class="box f">
+      <a href="food.html"><img src="food.jpg"></a>
+      <h1 id="label">
+        <a href="food.html">Food</a>
+      </h1>
+    </div>
+
+    <div class="box g">
+      <p>
+      Exercise is important both for the mind and the body! You’ve probably heard countless times that exercise releases endorphins, which can put you in a better mood, or that taking care of your body is essential to a long life. Ultimately, exercise is a form of self-care. We thus recommend putting 30 to 60 minutes of your day aside to engage in some form of exercise. Depending on the person, the type of exercise, and the intensity of the exercise, this may correspond to different numbers of calories burned throughout the day. We created this calorie calculator to help you calculate the number of calories you are burning through your daily exercise, as well as how many calories you’re consuming. If you’re like us and like watching the calorie counter go up when you’re on the treadmill at the gym and breathe a sigh of relief when the counter hits 153 because you know you’ve burned off a bag of chips, this can be a fun way to calculate the calories you’ve burned even when you’re not at the gym. However, note that there is no set number of calories a person should gain or lose in a day. As long as you’re exercising and staying healthy, that’s what’s most imporant!
+      </p>
+
+      <form id="form" onsubmit="return false;">
+
+        <label for="weight">Enter your weight: </label>
+        <input type="text" id="weight" />
+        <select name="weight_unit" id="weight_unit">
+          <option value="0">lbs</option>
+          <option value="1">kgs</option>
+        </select>
+
+      </form>
+
+      <form action="/button-type">
+        <button type="button" onclick="weight();">Submit</button>
+      </form>
+    </div>
+
+    <div class = "box h">
+      <h2 id = "Total Calories Clicker" onclick="print();"> Total Calories Burned
+      </h2>
+      <div id = "Total Calories">
+      </div>
+      <h2 id = "Reset" onclick="reset();"> Start New Day
+      </h2>
+    </div>
+
+  </div>
+
+  <script type="text/javascript">
+    function reset(){
+      localStorage["running_cal"] = 0
+      localStorage["swimming_cal"] = 0
+      localStorage["biking_cal"] = 0
+      localStorage["walking_cal"] = 0
+      localStorage["other_cal"] = 0
+    }
+
+    function print() {
+      var running_cal = parseFloat(localStorage["running_cal"]);
+      var swimming_cal = parseFloat(localStorage["swimming_cal"]);
+      var biking_cal = parseFloat(localStorage["biking_cal"]);
+      var walking_cal = parseFloat(localStorage["walking_cal"]);
+      var other_cal = parseFloat(localStorage["other_cal"]);
+      document.getElementById("Total Calories").innerHTML = running_cal + swimming_cal + biking_cal + other_cal + walking_cal;
+    }
+
+    function weight() {
+      var weight = parseInt(document.getElementById("weight").value)
+      var x = document.getElementById("weight_unit").selectedIndex;
+      var type = document.getElementsByTagName("option")[x].value;
+      var kg = 0;
+      if (parseInt(type) === 0) {
+        kg = weight / 2.20462;
+      }
+      else {
+        kg = weight;
+      }
+      localStorage["weight_in_kg"] = kg;
+      document.getElementById("box top").innerHTML = "You weigh " + kg;
+    }
+  </script>
+
+</body>
+
+</html>
