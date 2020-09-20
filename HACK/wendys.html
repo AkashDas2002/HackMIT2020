@@ -11,89 +11,135 @@
     <a href="pizzahut.html">Pizza Hut</a>
     <a href="restaurants.html">Restaurants</a>
 
-		<h1>
-			Wendy's
-		</h1>
+    <h1>
+      Wendy's 
+    </h1>
 
-  	<div class = "choices">
+    <div class = "choices">
 
-		<section id = "mcDonalds_burgers">
+      <span>
+        Main
+      </span>
 
-      <h3>
-  			Burgers
-  		</h3>
+      <div>
+            <label for="burger">Burger:</label>
+              <select name="burger" id="burger">
+                <option value=0>None</option>
+                <option value=570>Dave's Single</option>
+                <option value=810>Dave's Double</option>
+                <option value=1090>Dave's Triple</option>
+                <option value=940>Baconator</option>
+                <option value=630>Son of Baconator</option>
+                <option value=380>Jr. Bacon Cheeseburger</option>
+                <option value=330>Jr. Cheeseburger Deluxe</option>
+                <option value=240>Jr. Hamburger</option>
+                <option value=280>Jr. Cheeseburger</option>
+                <option value=390>Double Stack</option>
+                <option value=420>Crispy Chicken BLT</option>
+              </select>
+        </div> 
+
+      <div>
+            <label for="sandwich">Sandwich:</label>
+              <select name="sandwich" id="sandwich">
+                <option value=0>None</option>
+                <option value=510>Spicy Chicken Sandwich</option>
+                <option value=520>Homestyle Chicken Sandwich</option>
+                <option value=360>Grilled Chicken Sandwich</option>
+                <option value=330>Crispy Chicken Sandwich</option>
+              </select>
+        </div> 
+
+        <div>
+            <label for="wrap">Wrap:</label>
+              <select name="wrap" id="wrap">
+                <option value=0>None</option>
+                <option value=370>Spicy Chicken Wrap</option>
+                <option value=270>Grilled Chicken Wrap</option>
+              </select>
+          </div>  
+
+
+        <span>
+            Sides
+        </span>
+
+      <div>
+            <label for="fries">Fries:</label>
+              <select name="fries" id="fries">
+                <option value=0>None</option>
+                <option value=600>Bacon Ranch Fries</option>
+                <option value=590>Bacon Siracha Fries</option>
+                <option value=490>Baconator Fries</option>
+              </select>
+          </div>    
+
           <div>
-            <input class = "burgers" type="checkbox" id="big_mac" value="550">
-            <label for="big_mac">Big Mac</label>
-            <input class = "burgers" type="checkbox" id="qpounder_cheese" value="510">
-            <label for="tomato">Quarter Pounder With Cheese Deluxe</label>
-            <input class = "burgers" type="checkbox" id="mcdouble" value="390">
-            <label for="mcdouble">McDouble</label>
+            <input class = "sides" type="checkbox" id="salad" value="260">
+            <label for="salad">Green Side Salad</label>
+            <input class = "sides" type="checkbox" id="scpotato" value="310">
+            <label for="scpotato">Sour Cream and Chive Baked Potato</label>
+            <input class = "sides" type="checkbox" id="broc" value="430">
+            <label for="broc">Broccoli Cheese Baked Potato</label>
             <br>
-            <input class = "burgers" type="checkbox" id="qpounder_cheese_bacon" value="620">
-            <label for="qpounder_cheese_bacon">Quarter Pounder with Cheese Bacon</label>
-            <input class = "burgers" type="checkbox" id="cheeseBurger" value="300">
-            <label for="cheeseBurger">Cheeseburger</label>
-            <input class = "burgers" type="checkbox" id="doublecheeseBurger" value="440">
-            <label for="doublecheeseBurger">Double Cheeseburger</label>
-          </div>
+            <input class = "sides" type="checkbox" id="bcpotato" value="480">
+            <label for="bcpotato">Bacon Cheese Baked Potato</label>
+            <input class = "sides" type="checkbox" id="chili" value="250">
+            <label for="chili">Large Chili</label>
+            <input class = "sides" type="checkbox" id="app" value="35">
+            <label for="app">Apple Slices</label>
+          </div>  
 
-      <h3>
-        Sides
-      </h3>
-          <div>
-            <label for="Fries">Fries:</label>
-      	      <select name="fries" id="fries">
-      	        <option value=0>None</option>
-      	        <option value=220>Small</option>
-      	        <option value=320>Medium</option>
-      	        <option value=490>Large</option>
-      	      </select>
-          </div>
-          <div>
-            <form action="/action_page.php">
-  				  <label for="nuggets">Chicken McNuggets:</label>
-  				  <input type="number" id="num_nuggets" name="num_nuggets" min="0" value="0">
-  			    </form>
-          </div>
-
-          <h3>
+        <span>
             Other
-          </h3>
-          <form action="/action_page.php">
-      			  <label for="other_mcd">Other (estimate the number of calories):</label>
-      			  <input type="number" id="other_mcd" name="other_mcd" min="0" value="0">
-    			</form>
+        </span>
+        <form action="/action_page.php">
+      <label for="other">Other (estimate the number of calories):</label>
+      <input type="number" id="other" name="other" min="0" value="0">
+    </form>
 
+  </div>
 
-	</div>
-
-	<form id = "form" action = "/button-type">
+  <form id = "form" action = "/button-type">
       <button type="button" onclick="calories();">Submit</button>
-  	</form>
+    </form>
 
-  	<section id = "calories">
-  		Hi
-  	</section>
+    <section id = "calories">
+      Hi
+    </section>
 
 
-	<script type="text/javascript">
-		function calories() {
-      var totalCalories = 0;
-      var inputElements = document.getElementsByClassName('burgers');
-      for(var i=0; inputElements[i]; ++i){
-        if(inputElements[i].checked){
-           totalCalories = totalCalories + parseInt(inputElements[i].value);
-         }
-       }
+  <script type="text/javascript">
+    function calories() {
+      var burger = document.getElementById("burger");
+      var burger_cal = parseInt(burger.options[burger.selectedIndex].value);
+
+      var sandwich = document.getElementById("sandwich");
+      var sandwich_cal = parseInt(sandwich.options[sandwich.selectedIndex].value);
+
+      var wrap = document.getElementById("wrap");
+      var wrap_cal = parseInt(wrap.options[wrap.selectedIndex].value);
+
       var fries = document.getElementById("fries");
- 			totalCalories = totalCalories + parseInt(fries.options[fries.selectedIndex].value);
-      var num_nuggets = parseInt(document.getElementById("num_nuggets").value);
-      totalCalories = totalCalories + num_nuggets*42;
-      var other = parseInt(document.getElementById("other_mcd").value)
-      totalCalories = totalCalories + other;
-			document.getElementById("calories").innerHTML = totalCalories;
-      localStorage["restaurant_cal"] = parseInt(localStorage["restaurant_cal"]) + totalCalories;
+      var fries_cal = parseInt(fries.options[fries.selectedIndex].value);
+
+      var side_cal = 0;
+          var inputElements = document.getElementsByClassName("sides");
+          for(var i=0; inputElements[i]; ++i){
+            if(inputElements[i].checked){
+                side_cal = side_cal + parseInt(inputElements[i].value);
+            }
+          }
+
+          var other_cal = parseInt(document.getElementById("other").value);
+
+      var calories = burger_cal + sandwich_cal + wrap_cal + fries_cal + side_cal + other_cal;
+
+      
+      localStorage["restaurant_cal"] = parseInt(localStorage["restaurant_cal"]) + calories;
+
+      document.getElementById("calories").innerHTML = calories;
+
       }
   </script>
 
