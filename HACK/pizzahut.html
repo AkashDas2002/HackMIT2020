@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <link rel='stylesheet' type='text/css' href='style3.css'>
+</head>
+
+<body>
+    <a href="mcdonalds.html">McDonald's</a>
+    <a href="wendys.html">Wendy's</a>
+    <a href="shakeshack.html">Shake Shack</a>
+    <a href="kfc.html">KFC</a>
+    <a href="restaurants.html">Restaurants</a>
+
+		<h1>
+			Pizza Hut
+		</h1>
+
+  	<div class = "choices">
+
+		<section id = "KFC_Chicken">
+
+      <h3>
+  			Chicken
+  		</h3>
+          <div>
+            <span>Extra Crispy</span>
+            <br>
+            <input class = "chickens" type="checkbox" id="breast" value="510">
+            <label for="breast">Breast</label>
+            <input class = "chickens" type="checkbox" id="drumstick" value="150">
+            <label for="drumstick">Drumstick</label>
+            <input class = "chickens" type="checkbox" id="thigh" value="340">
+            <label for="thigh">Thigh</label>
+            <input class = "chickens" type="checkbox" id="whole_wing" value="190">
+            <label for="whole_wing">Whole Wing</label>
+            <br>
+
+            <span>Grilled</span>
+            <br>
+            <input class = "chickens" type="checkbox" id="breast" value="220">
+            <label for="breast">Breast</label>
+            <input class = "chickens" type="checkbox" id="drumstick" value="90">
+            <label for="drumstick">Drumstick</label>
+            <input class = "chickens" type="checkbox" id="thigh" value="170">
+            <label for="thigh">Thigh</label>
+            <input class = "chickens" type="checkbox" id="whole_wing" value="80">
+            <label for="whole_wing">Whole Wing</label>
+            <br>
+
+            <span>Original Recipe</span>
+            <br>
+            <input class = "chickens" type="checkbox" id="breast" value="360">
+            <label for="breast">Breast</label>
+            <input class = "chickens" type="checkbox" id="drumstick" value="120">
+            <label for="drumstick">Drumstick</label>
+            <input class = "chickens" type="checkbox" id="thigh" value="250s">
+            <label for="thigh">Thigh</label>
+            <input class = "chickens" type="checkbox" id="whole_wing" value="120">
+            <label for="whole_wing">Whole Wing</label>
+            <br>
+          </div>
+
+      <h3>
+        Sides
+      </h3>
+          <div>
+            <label for="Fries">Fries:</label>
+      	      <select name="fries" id="fries">
+      	        <option value=0>None</option>
+      	        <option value=220>Small</option>
+      	        <option value=320>Medium</option>
+      	        <option value=490>Large</option>
+      	      </select>
+          </div>
+          <div>
+            <form action="/action_page.php">
+  				  <label for="nuggets">Chicken McNuggets:</label>
+  				  <input type="number" id="num_nuggets" name="num_nuggets" min="0" value="0">
+  			    </form>
+          </div>
+
+          <h3>
+            Other
+          </h3>
+          <form action="/action_page.php">
+      			  <label for="other_mcd">Other (estimate the number of calories):</label>
+      			  <input type="number" id="other_mcd" name="other_mcd" min="0" value="0">
+    			</form>
+
+
+	</div>
+
+	<form id = "form" action = "/button-type">
+      <button type="button" onclick="calories();">Submit</button>
+  	</form>
+
+  	<section id = "calories">
+  		Hi
+  	</section>
+
+
+	<script type="text/javascript">
+		function calories() {
+      var totalCalories = 0;
+      var inputElements = document.getElementsByClassName('chickens');
+      for(var i=0; inputElements[i]; ++i){
+        if(inputElements[i].checked){
+           totalCalories = totalCalories + parseInt(inputElements[i].value);
+         }
+       }
+      var fries = document.getElementById("fries");
+ 			totalCalories = totalCalories + parseInt(fries.options[fries.selectedIndex].value);
+      var num_nuggets = parseInt(document.getElementById("num_nuggets").value);
+      totalCalories = totalCalories + num_nuggets*42;
+      var other = parseInt(document.getElementById("other_mcd").value)
+      totalCalories = totalCalories + other;
+			document.getElementById("calories").innerHTML = totalCalories;
+      localStorage["restaurant_cal"] = parseInt(localStorage["restaurant_cal"]) + totalCalories;
+      }
+  </script>
+
+</body>
+
+</html>
