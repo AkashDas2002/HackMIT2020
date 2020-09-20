@@ -11,111 +11,112 @@
     <a href="kfc.html">KFC</a>
     <a href="restaurants.html">Restaurants</a>
 
-		<h1>
-			Pizza Hut
-		</h1>
+    <h1>
+      Pizza Hut
+    </h1>
 
-  	<div class = "choices">
+    <div class = "choices">
 
-		<section id = "KFC_Chicken">
+      <span>
+        Main
+      </span>
+      <form id="form" onsubmit="return false;">
+        <label for="pizza">Pizza: </label>
+          <select name="pizza" id="pizza">
+            <option value=0>None</option>
+            <option value=250>Cheese</option>
+            <option value=290>Supreme</option>
+            <option value=240>Pepperoni & Mushroom</option>
+            <option value=270>Italian Sausage & Red Onion</option>
+            <option value=230>Hawaiin</option>
+            <option value=230>Veggie Lover's</option>
+            <option value=290>Pepperoni Lover's</option>
+            <option value=300>Hawaiin Luau</option>
+            <option value=260>Dan's Original</option>
+            <option value=290>Triple Meat Italiano</option>
+            <option value=270>Spicy Sicilian</option>
+            <option value=270>Ultimate Cheese Lover's</option>
+          </select>
+      </form>
 
-      <h3>
-  			Chicken
-  		</h3>
-          <div>
-            <span>Extra Crispy</span>
-            <br>
-            <input class = "chickens" type="checkbox" id="breast" value="510">
-            <label for="breast">Breast</label>
-            <input class = "chickens" type="checkbox" id="drumstick" value="150">
-            <label for="drumstick">Drumstick</label>
-            <input class = "chickens" type="checkbox" id="thigh" value="340">
-            <label for="thigh">Thigh</label>
-            <input class = "chickens" type="checkbox" id="whole_wing" value="190">
-            <label for="whole_wing">Whole Wing</label>
-            <br>
+      <form action="/action_page.php" id="form">
+        <label for="slices">Number of Slices of Pizza:</label>
+        <input type="number" id="slices" name="slices" min="0" value="0">
+      </form>
 
-            <span>Grilled</span>
-            <br>
-            <input class = "chickens" type="checkbox" id="breast" value="220">
-            <label for="breast">Breast</label>
-            <input class = "chickens" type="checkbox" id="drumstick" value="90">
-            <label for="drumstick">Drumstick</label>
-            <input class = "chickens" type="checkbox" id="thigh" value="170">
-            <label for="thigh">Thigh</label>
-            <input class = "chickens" type="checkbox" id="whole_wing" value="80">
-            <label for="whole_wing">Whole Wing</label>
-            <br>
-
-            <span>Original Recipe</span>
-            <br>
-            <input class = "chickens" type="checkbox" id="breast" value="360">
-            <label for="breast">Breast</label>
-            <input class = "chickens" type="checkbox" id="drumstick" value="120">
-            <label for="drumstick">Drumstick</label>
-            <input class = "chickens" type="checkbox" id="thigh" value="250s">
-            <label for="thigh">Thigh</label>
-            <input class = "chickens" type="checkbox" id="whole_wing" value="120">
-            <label for="whole_wing">Whole Wing</label>
-            <br>
-          </div>
-
-      <h3>
+      <span>
         Sides
-      </h3>
-          <div>
-            <label for="Fries">Fries:</label>
-      	      <select name="fries" id="fries">
-      	        <option value=0>None</option>
-      	        <option value=220>Small</option>
-      	        <option value=320>Medium</option>
-      	        <option value=490>Large</option>
-      	      </select>
-          </div>
-          <div>
-            <form action="/action_page.php">
-  				  <label for="nuggets">Chicken McNuggets:</label>
-  				  <input type="number" id="num_nuggets" name="num_nuggets" min="0" value="0">
-  			    </form>
-          </div>
+      </span>
 
-          <h3>
-            Other
-          </h3>
-          <form action="/action_page.php">
-      			  <label for="other_mcd">Other (estimate the number of calories):</label>
-      			  <input type="number" id="other_mcd" name="other_mcd" min="0" value="0">
-    			</form>
+      <form action="/action_page.php">
+        <label for="rollers">Pizza Rollers:</label>
+        <input type="number" id="rollers" name="rollers" min="0" value="0">
+      </form>
 
+      <form id="form" onsubmit="return false;">
+        <label for="wings">Wings: </label>
+          <select name="wings" id="wings">
+            <option value=0>None</option>
+            <option value=75>All American</option>
+            <option value=95>Buffalo Mild</option>
+            <option value=95>Buffalo Medium</option>
+            <option value=95>Buffalo Burnin Hot</option>
+            <option value=110>Honey BBQ</option>
+            <option value=105>Spicy Asian</option>
+            <option value=130>Garlic Parmesan</option>
+            <option value=100>Spicy BBQ</option>
+            <option value=110>Lemon Pepper</option>
+          </select>
+      </form>
 
-	</div>
+      <form action="/action_page.php" id="form">
+        <label for="wing_num">Number of Wings:</label>
+        <input type="number" id="wing_num" name="wing_num" min="0" value="0">
+      </form>
 
-	<form id = "form" action = "/button-type">
+      <span>
+        Other
+      </span>
+      <form action="/action_page.php">
+          <label for="other">Other (estimate the number of calories):</label>
+          <input type="number" id="other" name="other" min="0" value="0">
+      </form>
+
+    </div>
+
+  <form id = "form" action = "/button-type">
       <button type="button" onclick="calories();">Submit</button>
-  	</form>
+    </form>
 
-  	<section id = "calories">
-  		Hi
-  	</section>
+    <section id = "calories">
+    </section>
 
 
-	<script type="text/javascript">
-		function calories() {
-      var totalCalories = 0;
-      var inputElements = document.getElementsByClassName('chickens');
-      for(var i=0; inputElements[i]; ++i){
-        if(inputElements[i].checked){
-           totalCalories = totalCalories + parseInt(inputElements[i].value);
-         }
-       }
-      var fries = document.getElementById("fries");
- 			totalCalories = totalCalories + parseInt(fries.options[fries.selectedIndex].value);
-      var num_nuggets = parseInt(document.getElementById("num_nuggets").value);
-      totalCalories = totalCalories + num_nuggets*42;
-      var other = parseInt(document.getElementById("other_mcd").value)
-      totalCalories = totalCalories + other;
-			document.getElementById("calories").innerHTML = totalCalories;
-      localStorage["restaurant_cal"] = parseInt(localStorage["restaurant_cal"]) + totalCalories;
+  <script type="text/javascript">
+    function calories() {
+
+        var pizza = document.getElementById("pizza");
+        var pizza_type = parseInt(pizza.options[pizza.selectedIndex].value);
+        var slices = parseFloat(document.getElementById("slices").value);
+        var pizza_cal = pizza_type*slices
+
+        var rollers = 220;
+        var num_rollers = parseFloat(document.getElementById("rollers").value);
+        var rollers_cal = rollers*num_rollers;
+
+        var wings = document.getElementById("wings");
+        var wing = parseInt(wings.options[wings.selectedIndex].value);
+        var num_wings = parseFloat(document.getElementById("wing_num").value);
+        var wings_cal = wing*num_wings
+
+        var other = parseInt(document.getElementById("other").value);
+
+        var total = Math.round(pizza_cal + rollers_cal + wings_cal + other);
+
+        localStorage["restaurant_cal"] = parseInt(localStorage["restaurant_cal"]) + total
+
+        document.getElementById("calories").innerHTML = "You consumed " + total + " calories.";
+
       }
   </script>
 
