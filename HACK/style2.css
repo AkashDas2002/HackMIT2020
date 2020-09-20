@@ -14,3 +14,13 @@ h1 {
 .fun {
 	text-align: center;
 }
+
+ul {
+	<ul> max-width:1%; 
+	margin:auto;  
+	text-align:left;
+}
+
+#calories {
+	text-align: center;
+}
