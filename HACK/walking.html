@@ -101,10 +101,14 @@
 	        calories = Math.round(MET*weight*3.5/200 *total_minutes);
 
 
-	        localStorage["walking_cal"] = parseInt(localStorage["walking_cal"]) + calories;
+          if (isNaN(calories)){
+            document.getElementById("calories").innerHTML = "It looks like you didn't fill out your weight!";
+          }
 
-	        document.getElementById("calories").innerHTML = "Congratulations you have burned " + calories + " calories walking!";
-      }
+          else{
+            localStorage["running_cal"] = parseInt(localStorage["running_cal"]) + calories;
+            document.getElementById("calories").innerHTML = "Congratulations you have burned " + calories + " calories walking!";
+          }
     </script>
 
 </body>

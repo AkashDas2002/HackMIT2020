@@ -113,12 +113,16 @@
         }
 
         calories = Math.round(MET*weight*3.5/200 *total_minutes);
+        if (isNaN(calories)){
+          document.getElementById("calories").innerHTML = "It looks like you didn't fill out your weight!";
+        }
 
+        else{
+          localStorage["running_cal"] = parseInt(localStorage["running_cal"]) + calories;
+          document.getElementById("calories").innerHTML = "Congratulations you have burned " + calories + " calories running!";
+        }
 
-        localStorage["running_cal"] = parseInt(localStorage["running_cal"]) + calories;
-
-        document.getElementById("calories").innerHTML = "Congratulations you have burned " + calories + " calories running!";
-      }
+    }
     </script>
 
 </body>
