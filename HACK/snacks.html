@@ -12,72 +12,85 @@
   	<a href="drinks.html">Drinks</a>
   	<a href="restaurants.html">Restaurants</a>
 
-		<h1>
-			Snacks!
-		</h1>
+	<h1>
+		Snacks!
+	</h1>
 
   	<div class = "choices">
-		<h3>
-			Carbohydrates
-		</h3>
-		<section id = "carbs">
 
-			<label>
-				<input type = "checkbox">
-				Pancakes
-			</label>
+  		<span>
+  			Fruits
+  		</span>
 
-			<label>
-				<input type = "checkbox">
-				Waffles
-			</label>
+  		<section id = "fruits">
 
-			<label>
-				<input type = "checkbox">
-				Cereal
-			</label>
+			<form action="/action_page.php">
+				  <label for="bananas">Bananas:</label>
+				  <input type="number" id="bananas" name="bananas" min="0" value="0">
+			</form>
 
-			<label>
-				<input type = "checkbox">
-				Bagel
-			</label>
+			<form action="/action_page.php">
+				  <label for="apples">Apples:</label>
+				  <input type="number" id="apples" name="apples" min="0" value="0">
+			</form>
 
-			<label>
-				<input type = "checkbox">
-				Toast
-			</label>
+			<form action="/action_page.php">
+				  <label for="watermelon">Watermelon Slices</label>
+				  <input type="number" id="watermelon" name="watermelon" min="0" value="0">
+			</form>
 
-			<label>
-				<input type = "checkbox">
-				Crossiant
-			</label>
+			<form action="/action_page.php">
+				  <label for="strawberries">Servings of Strawberries (~8 strawberries):</label>
+				  <input type="number" id="strawberries" name="strawberries" min="0" value="0">
+			</form>
+
+			<form action="/action_page.php">
+				  <label for="blueberries">Servings of Blueberries (~80 blueberries):</label>
+				  <input type="number" id="blueberries" name="blueberries" min="0" value="0">
+			</form>
+
+			<form action="/action_page.php">
+				  <label for="grapes">Servings of Grapes (~36 grapes):</label>
+				  <input type="number" id="grapes" name="grapes" min="0" value="0">
+			</form>
+
+			<form action="/action_page.php">
+				  <label for="other_fruit">Other (estimate the number of calories):</label>
+				  <input type="number" id="other_fruit" name="other_fruit" min="0" value="0">
+			</form>
 		</section>
 
-		<h3>
-			Protein
-		</h3>
-		<section id = "protein">
+		<span>
+  			Chips
+  		</span>
 
-			<label>
-				<input type = "checkbox">
-				Eggs
-			</label>
+  		<section id = "chips">
+  		  <form id="form" onsubmit="return false;">
+			<label for="chips">Chips:</label>
+      	      <select name="chips" id="chips">
+      	      	<option value=0>None</option>
+      	        <option value=150>Doritos</option>
+      	        <option value=160>Lays</option>
+      	        <option value=150>Cheetos</option>
+      	        <option value=150>Cheetos Puffs</option>
+      	        <option value=160>Ruffles</option>
+      	       	<option value=140>Sun Chips</option>
+      	       	<option value=150>Pringles</option>
+      	      </select>
+      	  </form>
 
-			<label>
-				<input type = "checkbox">
-				Bacon
-			</label>
+      	      <form action="/action_page.php" id="form">
+		        <label for="chip_servings">Number of Servings:</label>
+		        <input type="number" id="chip_servings" name="chip_servings" min="0" value="0">
+		      </form>
 
-			<label>
-				<input type = "checkbox">
-				Sausage
-			</label>
-
-			<label>
-				<input type = "checkbox">
-				Bacon
-			</label>
-
+		      <span>
+		        Other
+		      </span>
+		      <form action="/action_page.php">
+		  			  <label for="other">Other (estimate the number of calories):</label>
+		  			  <input type="number" id="other" name="other" min="0" value="0">
+			  </form>
 		</section>
 
 	</div>
@@ -87,8 +100,48 @@
   	</form>
 
 
+  	<section id = "calories">
+  	</section>
+
 	<script type="text/javascript">
 		function calories() {
+
+			var strawberry_serving = 48;
+			var grapes_serving = 100;
+			var blueberries_serving = 83;
+			var watermelon_slice = 87;
+			var apple = 110;
+			var banana = 105;
+
+			var num_strawberry = parseFloat(document.getElementById("strawberries").value);
+			var num_blueberries = parseFloat(document.getElementById("blueberries").value);
+			var num_grapes = parseFloat(document.getElementById("grapes").value);
+			var num_watermelon = parseFloat(document.getElementById("watermelon").value);
+			var num_apple = parseFloat(document.getElementById("apples").value);
+			var num_banana = parseFloat(document.getElementById("bananas").value);
+
+			var other_fruit = parseFloat(document.getElementById("other_fruit").value);
+
+			var fruit_cal = Math.round(strawberry_serving*num_strawberry + grapes_serving*num_grapes + blueberries_serving*num_blueberries + watermelon_slice*num_watermelon + apple*num_apple + banana*num_banana + other_fruit);
+
+			var chip = document.getElementById("chips");
+        	var chip_cal = parseInt(chip.options[chip.selectedIndex].value);
+
+	        alert(fruit_cal);
+	       
+
+	        var chip_servings = parseFloat(document.getElementById("chip_servings").value);
+	        var chip_cal = chip_type*chip_servings;
+
+
+	        var other = parseFloat(document.getElementById("other").value);
+
+	        var calories = Math.round(fruit_cal);
+
+	        localStorage["snacks_cal"] = parseInt(localStorage["snacks_cal"]) + calories;
+
+	        document.getElementById("calories").innerHTML = "hi";
+
 
       }
     </script>

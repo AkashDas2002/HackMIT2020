@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <link rel='stylesheet' type='text/css' href='style3.css'>
+</head>
+
+<body>
+    <a href="mcdonalds.html">McDonald's</a>     
+    <a href="wendys.html">Wendy's</a>     
+    <a href="shakeshack.html">Shake Shack</a>     
+    <a href="kfc.html">KFC</a>     
+    <a href="pizzahut.html">Pizza Hut</a>     
+    <a href="restaurants.html">Restaurants</a>
+
+		<h1>
+			Subway's
+		</h1>
+
+  	<div class = "choices">
+      <span>
+        Sandwich
+      </span>
+      <form id="form" onsubmit="return false;">
+        <label for="sandwich">Sandwich: </label>
+          <select name="sandwich" id="sandwich">
+            <option value=0>None</option>
+            <option value=290>Black Forest Ham</option>
+            <option value=280>Turkey Breast</option>
+            <option value=320>Roast Beef</option>
+            <option value=230>Veggie Delite</option>
+            <option value=310>Club Sandwich</option>
+            <option value=370>Sweet Onion Chicken Teriyaki</option>
+            <option value=247>Rotisserie Style Chicken</option>
+            <option value=320>Roasted Chicken</option>
+          </select>
+
+          <br>
+
+          <label for="length">Sandwich Length: </label>
+          <select name="length" id="length">
+            <option value=0>None</option>
+            <option value=1>6 inch</option>
+            <option value=2>12 inch</option>
+          </select>
+
+          <br>
+
+          <span class= "small">
+            Toppings
+          </span>
+          <br>
+
+          <input class = "toppings" type="checkbox" id="tomato" value=5>
+          <label for="tomato">Tomatoes</label>
+          <input class = "toppings" type="checkbox" id="peppers" value=3>
+          <label for="peppers">Peppers</label>
+          <input class = "toppings" type="checkbox" id="lettuce" value=3>
+          <label for="lettuce">Lettuce</label>
+          <input class = "toppings" type="checkbox" id="spinach" value=3>
+          <label for="spinach">Spinach</label>
+          <br>
+          <input class = "toppings" type="checkbox" id="cheese" value=50>
+          <label for="cheese">Cheese</label>
+          <input class = "toppings" type="checkbox" id="cucumbers" value=3>
+          <label for="cucumbers">Cucumbers</label>
+          <input class = "toppings" type="checkbox" id="pickles" value=3>
+          <label for="pickles">Pickles</label>
+          <input class = "toppings" type="checkbox" id="avocado" value=60>
+          <label for="avocado">Avocado</label>
+      </form>
+
+      <span>
+        Wraps
+      </span>
+      <form id="form" onsubmit="return false;">
+        <label for="wrap">Wrap: </label>
+          <select name="wrap" id="wrap">
+            <option value=0>None</option>
+            <option value=1080>BBQ Rib Signature Wrap</option>
+            <option value=440>Black Forest Ham</option>
+            <option value=1590>Chicken & Bacon Ranch Melt</option>
+            <option value=710>Chipotle Southwest Steak & Cheese</option>
+            <option value=530>Cold Cut Combo</option>
+            <option value=820>Crispy Cauliflower Ranch Signature</option>
+            <option value=770>Meatball Marinara</option>
+            <option value=460>Oven Roasted Chicken</option>
+            <option value=490>Roast Beef</option>
+            <option value=820>Spicy Italian</option>
+          </select>
+      </form>
+
+      <span>
+        Salad
+      </span>
+      <form id="form" onsubmit="return false;">
+        <label for="salad">Salad: </label>
+          <select name="salad" id="salad">
+            <option value=0>None</option>
+            <option value=130>Oven Roasted Chicken Breast Salad</option>
+            <option value=50>Veggie Delite Salad</option>
+            <option value=110>Black Forest Ham Salad</option>
+            <option value=140>Roast Beef Salad</option>
+            <option value=140>Subway Club Salad</option>
+          </select>
+      </form>
+
+      <span>
+        Bowls
+      </span>
+      <form id="form" onsubmit="return false;">
+        <label for="bowl">Bowl: </label>
+          <select name="bowl" id="bowl">
+            <option value=0>None</option>
+            <option value=590>Chicken Bacon & Ranch Protein Bowl</option>
+            <option value=600>Chipotle Southwest Steak Protein Bowl</option>
+            <option value=290>Sweet Onion Teriyaki Protein Bowl</option>
+          </select>
+      </form>
+
+      <span>
+        Other
+      </span>
+      <form action="/action_page.php">
+          <label for="other">Other (estimate the number of calories):</label>
+          <input type="number" id="other" name="other" min="0" value="0">
+      </form>
+
+	  </div>
+    
+    <form id = "form" action = "/button-type">
+      <button type="button" onclick="calories();">Submit</button>
+    </form>
+
+  	<section id = "calories">
+  	</section>
+
+
+	<script type="text/javascript">
+		function calories() {
+        var sandwich = document.getElementById("sandwich");
+        var sandwich_type = parseInt(sandwich.options[sandwich.selectedIndex].value);
+        var length = parseFloat(document.getElementById("length").value);
+        var sandwich_cal = sandwich_type*length;
+
+        var toppings_cal = 0
+        var inputElements = document.getElementsByClassName("toppings");
+        for(var i=0; inputElements[i]; ++i){
+          if(inputElements[i].checked){
+             toppings_cal = toppings_cal + parseInt(inputElements[i].value);
+           }
+         }
+
+        var wrap = document.getElementById("wrap");
+        var wrap_cal = parseInt(wrap.options[wrap.selectedIndex].value);
+
+        var salad = document.getElementById("salad");
+        var salad_cal = parseInt(salad.options[salad.selectedIndex].value);
+
+        var bowl = document.getElementById("bowl");
+        var bowl_cal = parseInt(bowl.options[bowl.selectedIndex].value);
+
+        var other = parseInt(document.getElementById("other").value)
+
+        var calories = sandwich_cal + toppings_cal + wrap_cal + salad_cal + bowl_cal + other;
+
+        localStorage["restaurant_cal"] = parseInt(localStorage["restaurant_cal"]) + calories;
+
+        document.getElementById("calories").innerHTML = "You have consumed " + calories + " calories.";
+
+
+      }
+  </script>
+
+</body>
+
+</html>
