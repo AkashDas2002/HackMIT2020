@@ -28,7 +28,7 @@
         </select>
 
       </form>
-
+      <br>
       <form action="/button-type">
         <button type="button" onclick="weight();">Submit</button>
       </form>
@@ -115,7 +115,8 @@
       var biking_cal = parseFloat(localStorage["biking_cal"]);
       var walking_cal = parseFloat(localStorage["walking_cal"]);
       var other_cal = parseFloat(localStorage["other_cal"]);
-      document.getElementById("Total Calories").innerHTML = running_cal + swimming_cal + biking_cal + other_cal + walking_cal;
+      var all_burned = running_cal + swimming_cal + biking_cal + other_cal + walking_cal;
+      document.getElementById("Total Calories").innerHTML = "You burned " + all_burned + " calories!"
     }
 
     function print_consumed() {
@@ -125,7 +126,8 @@
       var dd_cal = parseFloat(localStorage["dd_cal"]);
       var snacks_cal = parseFloat(localStorage["snacks_cal"]);
       var restaurant_cal = parseFloat(localStorage["restaurant_cal"])
-      document.getElementById("Consumed Calories").innerHTML = breakfast_cal + lunch_cal + dinner_cal + dd_cal + snacks_cal + restaurant_cal;
+      var all_consumed = breakfast_cal + lunch_cal + dinner_cal + dd_cal + snacks_cal + restaurant_cal;
+      document.getElementById("Consumed Calories").innerHTML = "You consumed " + all_consumed + " calories!"
     }
 
     function weight() {
@@ -140,7 +142,7 @@
         kg = weight;
       }
       localStorage["weight_in_kg"] = kg;
-      document.getElementById("box top").innerHTML = "You weigh " + kg;
+      // document.getElementById("box top").innerHTML = "You weigh " + kg;
     }
   </script>
 

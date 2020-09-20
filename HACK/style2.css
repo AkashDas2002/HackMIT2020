@@ -11,6 +11,25 @@ h1 {
 	text-align: center;
 }
 
+a:link {
+  color: #0099ff;
+}
+
+a:visited {
+  color: #0099ff;
+  text-decoration: none;
+}
+
+a:hover {
+  color: #007acc;
+  text-decoration: none;
+}
+
+a:active {
+  color: #0099ff;
+  text-decoration: none;
+}
+
 .fun {
 	text-align: center;
 	background-color:powderblue;
