@@ -143,7 +143,7 @@
 			var other = parseFloat(document.getElementById("other_dess").value);
 
 			var total_cal = Math.round(cake_cal + cookie_cal + ice_cream_cal + other + drinks_cal);
-      document.getElementById("calories").innerHTML = "You ate " + total_cal;
+      document.getElementById("calories").innerHTML = "You consumed " + total_cal + " calories";
       localStorage['dd_cal'] = parseInt(localStorage['dd_cal']) + total_cal;
 
       }

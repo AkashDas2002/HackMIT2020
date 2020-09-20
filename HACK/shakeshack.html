@@ -9,6 +9,7 @@
     <a href="wendys.html">Wendy's</a>
     <a href="kfc.html">KFC</a>
     <a href="pizzahut.html">Pizza Hut</a>
+    <a href="subway.html">Subway</a>
     <a href="restaurants.html">Restaurants</a>
 
 		<h1>
@@ -84,7 +85,7 @@
  			totalCalories = totalCalories + parseInt(fries.options[fries.selectedIndex].value);
       var other = parseInt(document.getElementById("other_ss").value)
       totalCalories = totalCalories + other;
-			document.getElementById("calories").innerHTML = totalCalories;
+			document.getElementById("calories").innerHTML = "You consumed " + totalCalories + " calories.";
       localStorage["restaurant_cal"] = parseInt(localStorage["restaurant_cal"]) + totalCalories;
       }
   </script>

@@ -44,3 +44,10 @@ span {
 .small {
 	font-size: 15px;
 }
+
+#calories {
+	text-align: center;
+	background-color: #00ffcc;
+	border-bottom-left-radius: 25px;
+	border-bottom-right-radius: 25px
+}

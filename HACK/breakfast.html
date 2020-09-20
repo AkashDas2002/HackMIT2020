@@ -93,7 +93,6 @@
   	</form>
 
   	<section id = "calories">
-  		Hi
   	</div>
 
 
@@ -130,7 +129,7 @@
 
 
 			var breakfast_cal = carb_cal + pro_cal;
-			document.getElementById("calories").innerHTML = breakfast_cal;
+			document.getElementById("calories").innerHTML = "You consumed " + breakfast_cal + " calories.";
 			localStorage["breakfast_cal"] = parseInt(localStorage["breakfast_cal"]) + breakfast_cal;
 
       }
