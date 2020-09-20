@@ -9,7 +9,7 @@
   <a href="breakfast.html">Breakfast</a>
 	<a href="lunch.html">Lunch</a>
   	<a href="dinner.html">Dinner</a>
-  	<a href="drinks.html">Drinks</a>
+  	<a href="drinks.html">Drinks & Desserts</a>
   	<a href="restaurants.html">Restaurants</a>
 
 	<h1>
@@ -125,7 +125,7 @@
 			var fruit_cal = Math.round(strawberry_serving*num_strawberry + grapes_serving*num_grapes + blueberries_serving*num_blueberries + watermelon_slice*num_watermelon + apple*num_apple + banana*num_banana + other_fruit);
 
 			var chip = document.getElementById("chips");
-        	var chip_cal = parseInt(chip.options[chip.selectedIndex].value);
+        	var chip_type = parseInt(chip.options[chip.selectedIndex].value);
 
 	        alert(fruit_cal);
 	       
