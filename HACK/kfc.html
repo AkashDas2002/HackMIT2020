@@ -139,7 +139,7 @@
       }
       var other = parseInt(document.getElementById("other_kfc").value)
       totalCalories = totalCalories + other;
-			document.getElementById("calories").innerHTML = totalCalories;
+			document.getElementById("calories").innerHTML = "You consumed " + totalCalories + " calories.";
       localStorage["restaurant_cal"] = parseInt(localStorage["restaurant_cal"]) + totalCalories;
       }
   </script>
