@@ -146,6 +146,11 @@
   text-align: center;
 }
 
+.introText {
+  margin-left:30px;
+  margin-right:30px;
+}
+
 
 .box img:hover {
 	opacity: 80%;
