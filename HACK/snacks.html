@@ -9,7 +9,7 @@
   <a href="breakfast.html">Breakfast</a>
 	<a href="lunch.html">Lunch</a>
   	<a href="dinner.html">Dinner</a>
-  	<a href="drinks.html">Drinks & Desserts</a>
+  	<a href="drinks.html">Drinks</a>
   	<a href="restaurants.html">Restaurants</a>
 
 	<h1>
@@ -63,26 +63,38 @@
 		<span>
   			Chips
   		</span>
-
-  		<section id = "chips">
+  		<!-- <section id = "chips">
   		  <form id="form" onsubmit="return false;">
 			<label for="chips">Chips:</label>
       	      <select name="chips" id="chips">
-      	      	<option value=0>None</option>
-      	        <option value=150>Doritos</option>
-      	        <option value=160>Lays</option>
-      	        <option value=150>Cheetos</option>
-      	        <option value=150>Cheetos Puffs</option>
-      	        <option value=160>Ruffles</option>
-      	       	<option value=140>Sun Chips</option>
-      	       	<option value=150>Pringles</option>
-      	      </select>
-      	  </form>
+      	      	<option value="0">None</option>
+      	        <option value="150">Doritos</option>
+      	        <option value="160">Lays</option>
+      	        <option value="150">Cheetos</option>
+      	        <option value="150">Cheetos Puffs</option>
+      	        <option value="160">Ruffles</option>
+      	       	<option value="140">Sun Chips</option>
+      	       	<option value="150">Pringles</option>
+      	      </select> -->
 
-      	      <form action="/action_page.php" id="form">
-		        <label for="chip_servings">Number of Servings:</label>
-		        <input type="number" id="chip_servings" name="chip_servings" min="0" value="0">
-		      </form>
+          <div>
+            <label for="Fries">Chips:</label>
+      	      <select name="fries" id="fries">
+                <option value="0">None</option>
+      	        <option value="150">Doritos</option>
+      	        <option value="160">Lays</option>
+      	        <option value="150">Cheetos</option>
+      	        <option value="150">Cheetos Puffs</option>
+      	        <option value="160">Ruffles</option>
+      	       	<option value="140">Sun Chips</option>
+      	       	<option value="150">Pringles</option>
+      	      </select>
+          </div>
+        </form>
+           <form action="/action_page.php" id="form">
+         <label for="chip_servings">Number of Servings:</label>
+         <input type="number" id="chip_servings" name="chip_servings" min="0" value="0">
+       </form>
 
 		      <span>
 		        Other
@@ -124,23 +136,23 @@
 
 			var fruit_cal = Math.round(strawberry_serving*num_strawberry + grapes_serving*num_grapes + blueberries_serving*num_blueberries + watermelon_slice*num_watermelon + apple*num_apple + banana*num_banana + other_fruit);
 
-			var chip = document.getElementById("chips");
-        	var chip_type = parseInt(chip.options[chip.selectedIndex].value);
-
-	        alert(fruit_cal);
-	       
-
-	        var chip_servings = parseFloat(document.getElementById("chip_servings").value);
-	        var chip_cal = chip_type*chip_servings;
+      // var chips = document.getElementById("chips");
+ 			// var chip_type = parseInt(chips.options[chips.selectedIndex].value);
+      var fries = document.getElementById("fries");
+ 			var chip_type =  parseInt(fries.options[fries.selectedIndex].value);
 
 
-	        var other = parseFloat(document.getElementById("other").value);
+      var chip_servings = parseFloat(document.getElementById("chip_servings").value);
+      var chip_cal = chip_type*chip_servings;
 
-	        var calories = Math.round(fruit_cal);
 
-	        localStorage["snacks_cal"] = parseInt(localStorage["snacks_cal"]) + calories;
+      var other = parseFloat(document.getElementById("other").value);
 
-	        document.getElementById("calories").innerHTML = "hi";
+      var calories = Math.round(fruit_cal+chip_cal+other);
+
+      localStorage["snacks_cal"] = parseInt(localStorage["snacks_cal"]) + calories;
+
+      document.getElementById("calories").innerHTML = "You consumed " + calories + " calories.";
 
 
       }
