@@ -48,8 +48,12 @@
 	<script type="text/javascript">
 		function calories() {
 
-			  var newstuff = parseInt(document.getElementById("cal").value);
+			var newstuff = parseInt(document.getElementById("cal").value);
 		    localStorage["other_cal"] = parseInt(localStorage["other_cal"]) + newstuff;
+
+		    if (isNaN(newstuff)) {
+		    	newstuff = 0;
+		    }
 
 		    document.getElementById("calories").innerHTML = "Congratulations you have burned an additional " + newstuff + " calories!";
 		}
