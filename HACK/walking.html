@@ -57,58 +57,57 @@
 	<script type="text/javascript">
 		function running_calories() {
 		    var miles = parseFloat(document.getElementById("miles").value);
-          	var hours = parseFloat(document.getElementById("hours").value);
-          	var minutes = parseFloat(document.getElementById("minutes").value);
-          	var seconds = parseFloat(document.getElementById("seconds").value);
-            if (isNaN(miles)) {
-                miles = 0;
-            }
-            if (isNaN(hours)) {
-                hours = 0;
-            }
-            if (isNaN(minutes)) {
-                minutes = 0;
-            }
-            if (isNaN(seconds)) {
-                seconds = 0;
-            }
+      	var hours = parseFloat(document.getElementById("hours").value);
+      	var minutes = parseFloat(document.getElementById("minutes").value);
+      	var seconds = parseFloat(document.getElementById("seconds").value);
+        if (isNaN(miles)) {
+            miles = 0;
+        }
+        if (isNaN(hours)) {
+            hours = 0;
+        }
+        if (isNaN(minutes)) {
+            minutes = 0;
+        }
+        if (isNaN(seconds)) {
+            seconds = 0;
+        }
 
-            var total_minutes = hours*60 + minutes + seconds / 60;
-            var total_hours = total_minutes/60;
-            var pace = miles/total_hours ;
-            var weight = localStorage["weight_in_kg"]
+        var total_minutes = hours*60 + minutes + seconds / 60;
+        var total_hours = total_minutes/60;
+        var pace = miles/total_hours ;
+        var weight = localStorage["weight_in_kg"];
 
-	        var MET = 0;
-	        if (mph < 2) {
-	          MET = 2.5;
-	        }
-	        else if (mph < 2.5) {
-	          MET = 3;
-	        }
-	        else if (mph < 3) {
-	          MET = 3.5;
-	        }
-	        else if (mph < 4) {
-	          MET = 4;
-	        }
-	        else if (mph < 4.5) {
-	          MET = 4.5;
-	        }
-	        else {
-	          MET = 6.5;
-	        }
+        var MET = 0;
+        if (mph < 2) {
+          MET = 2.5;
+        }
+        else if (mph < 2.5) {
+          MET = 3;
+        }
+        else if (mph < 3) {
+          MET = 3.5;
+        }
+        else if (mph < 4) {
+          MET = 4;
+        }
+        else if (mph < 4.5) {
+          MET = 4.5;
+        }
+        else {
+          MET = 6.5;
+        }
 
-	        calories = Math.round(MET*weight*3.5/200 *total_minutes);
+        calories = Math.round(MET*weight*3.5/200 *total_minutes);
 
+        if (isNaN(calories)){
+          document.getElementById("calories").innerHTML = "It looks like you didn't fill out your weight!";
+        }
 
-          if (isNaN(calories)){
-            document.getElementById("calories").innerHTML = "It looks like you didn't fill out your weight!";
-          }
-
-          else{
-            localStorage["running_cal"] = parseInt(localStorage["running_cal"]) + calories;
-            document.getElementById("calories").innerHTML = "Congratulations you have burned " + calories + " calories walking!";
-          }
+        else {
+          localStorage["walking_cal"] = parseInt(localStorage["walking_cal"]) + calories;
+          document.getElementById("calories").innerHTML = "Congratulations you have burned " + calories + " calories walking!";
+        }
     </script>
 
 </body>
