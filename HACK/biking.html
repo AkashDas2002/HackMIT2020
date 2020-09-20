@@ -4,7 +4,7 @@
   <link rel='stylesheet' type='text/css' href='style2.css'>
 </head>
 
-<body> 
+<body>
 	<a href="home.html">Home</a>
 	<a href="running.html">Running</a>
 	<a href="swimming.html">Swimming</a>
@@ -18,7 +18,7 @@
 
 
 	<form id="form" onsubmit="return false;">
-    
+
 	 <label for="miles">How many miles did you bike?</label>
 	 <input type="text" id="miles" />
 
@@ -36,12 +36,14 @@
       <button type="button" onclick="biking_calories();">Calculate Calories</button>
   	</form>
 
+    <section id = "calories">
+  	</section>
+
   	<section class = "fun">
 		Fun Facts
 	</section>
 
-	<section id = "calories">
-	</section>
+
 
 	<script type="text/javascript">
 		function biking_calories() {
