@@ -61,30 +61,55 @@
           </div>
 
       <h3>
-        Sides
+        Sandwiches, Bowls, & More
       </h3>
           <div>
-            <label for="Fries">Fries:</label>
-      	      <select name="fries" id="fries">
-      	        <option value=0>None</option>
-      	        <option value=220>Small</option>
-      	        <option value=320>Medium</option>
-      	        <option value=490>Large</option>
-      	      </select>
+            <br>
+            <input class = "sbm" type="checkbox" id="chicken_little" value="320">
+            <label for="chicken_little">Chicken Little</label>
+            <input class = "sbm" type="checkbox" id="colonel" value="450">
+            <label for="colonel">Colonel's Original Sandwich</label>
+            <input class = "sbm" type="checkbox" id="twister" value="610">
+            <label for="twister">Crispy Twister</label>
+            <input class = "sbm" type="checkbox" id="bbqsandwich" value="320">
+            <label for="bbqsandwich">Honey BBQ Sandwich</label>
+            <br>
+            <input class = "sbm" type="checkbox" id="pot_pie" value="790">
+            <label for="pot_pie">Chicken Pot Pie</label>
+            <input class = "sbm" type="checkbox" id="famous_bowl" value="680">
+            <label for="famous_bowl">KFC Famous Bowl</label>
+            <input class = "sbm" type="checkbox" id="popcorn_chicken" value="570">
+            <label for="popcorn_chicken">Popcorn Chicken Nuggets Go Cup</label>
           </div>
-          <div>
-            <form action="/action_page.php">
-  				  <label for="nuggets">Chicken McNuggets:</label>
-  				  <input type="number" id="num_nuggets" name="num_nuggets" min="0" value="0">
-  			    </form>
-          </div>
+
+          <h3>
+            Sides
+          </h3>
+              <div>
+                <br>
+                <input class = "sbm" type="checkbox" id="biscuit" value="180">
+                <label for="biscuit">Biscuit</label>
+                <input class = "sbm" type="checkbox" id="beans" value="210">
+                <label for="beans">BBQ Baked Beans</label>
+                <input class = "sbm" type="checkbox" id="coleslaw" value="180">
+                <label for="coleslaw">Cole Slaw</label>
+                <input class = "sbm" type="checkbox" id="kernelcorn" value="100">
+                <label for="kernelcorn">Kernel Corn</label>
+                <br>
+                <input class = "sbm" type="checkbox" id="mac_and_cheese" value="160">
+                <label for="mac_and_cheese">Macoroni and Cheese</label>
+                <input class = "sbm" type="checkbox" id="wedges" value="290">
+                <label for="wedges">Potato Wedges</label>
+                <input class = "sbm" type="checkbox" id="mashed" value="100">
+                <label for="mashed">Mashed Potatoes</label>
+              </div>
 
           <h3>
             Other
           </h3>
           <form action="/action_page.php">
-      			  <label for="other_mcd">Other (estimate the number of calories):</label>
-      			  <input type="number" id="other_mcd" name="other_mcd" min="0" value="0">
+      			  <label for="other_kfc">Other (estimate the number of calories):</label>
+      			  <input type="number" id="other_kfc" name="other_kfc" min="0" value="0">
     			</form>
 
 
@@ -106,13 +131,15 @@
       for(var i=0; inputElements[i]; ++i){
         if(inputElements[i].checked){
            totalCalories = totalCalories + parseInt(inputElements[i].value);
-         }
-       }
-      var fries = document.getElementById("fries");
- 			totalCalories = totalCalories + parseInt(fries.options[fries.selectedIndex].value);
-      var num_nuggets = parseInt(document.getElementById("num_nuggets").value);
-      totalCalories = totalCalories + num_nuggets*42;
-      var other = parseInt(document.getElementById("other_mcd").value)
+        }
+      }
+      var inputElements2 = document.getElementsByClassName('sbm');
+      for(var i=0; inputElements2[i]; ++i){
+        if(inputElements2[i].checked){
+            totalCalories = totalCalories + parseInt(inputElements2[i].value);
+        }
+      }
+      var other = parseInt(document.getElementById("other_kfc").value)
       totalCalories = totalCalories + other;
 			document.getElementById("calories").innerHTML = totalCalories;
       localStorage["restaurant_cal"] = parseInt(localStorage["restaurant_cal"]) + totalCalories;
