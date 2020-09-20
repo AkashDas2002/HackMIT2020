@@ -32,8 +32,11 @@
 	</form>
 
 	<form id = "form" action = "/button-type">
-	    <button type="button" onclick="running_calories();">Calculate Calories</button>
+	    <button type="button" onclick="walking_calories();">Calculate Calories</button>
 	</form>
+
+  <section id = "calories">
+  </section>
 
 	<section class = "fun">
 		<h2>
@@ -50,12 +53,8 @@
     </section>
 	</section>
 
-
-	<section id = "calories">
-	</section>
-
 	<script type="text/javascript">
-		function running_calories() {
+		function walking_calories() {
 		    var miles = parseFloat(document.getElementById("miles").value);
       	var hours = parseFloat(document.getElementById("hours").value);
       	var minutes = parseFloat(document.getElementById("minutes").value);
@@ -73,11 +72,10 @@
             seconds = 0;
         }
 
-        var total_minutes = hours*60 + minutes + seconds / 60;
+        var total_minutes = hours*60 + minutes ;//+ seconds / 60;
         var total_hours = total_minutes/60;
-        var pace = miles/total_hours ;
+        var mph = miles/total_hours ;
         var weight = localStorage["weight_in_kg"];
-
         var MET = 0;
         if (mph < 2) {
           MET = 2.5;
@@ -108,6 +106,7 @@
           localStorage["walking_cal"] = parseInt(localStorage["walking_cal"]) + calories;
           document.getElementById("calories").innerHTML = "Congratulations you have burned " + calories + " calories walking!";
         }
+      }
     </script>
 
 </body>
